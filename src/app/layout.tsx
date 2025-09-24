@@ -1,11 +1,14 @@
 import './../styles/globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 // A função `generateMetadata` é a nova forma de definir metadata e SEO
 export const metadata = {
-  title: 'Meu Portfólio/Currículo',
-  description: 'Portfólio e Currículo de um Estudante de Engenharia de Software',
+  title: 'Meu Currículo :D',
+  description: 'Currículo de um Estudante de Engenharia de Software',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -15,14 +15,14 @@ const EducationItem: React.FC<EducationItemProps> = ({ degree, institution, year
 const Education = () => {
   const education = [
     {
-      degree: "Bacharelado em Ciência da Computação",
-      institution: "Universidade Fictícia",
-      year: "2018 - 2022"
+      degree: "Bacharelado em Engenharia de Software",
+      institution: "Universidade Positivo - UP",
+      year: "2021 - 2025"
     },
     {
-      degree: "Curso de React Avançado",
-      institution: "Plataforma de Cursos Online",
-      year: "2023"
+      degree: "Curso de Lógica de Programação e Algoritmos com C",
+      institution: "Udemy",
+      year: "2025"
     }
   ];
 
