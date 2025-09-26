@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 // Mantenha esta linha aqui para garantir a injeção do CSS
-import './../styles/globals.css'; 
+import './globals.css'; 
 
 
 const inter = Inter({ subsets: ['latin'] });
