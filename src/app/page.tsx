@@ -16,31 +16,44 @@ export default function HomePage() {
   ];
 
   return (
-    <>
-      {/* O Hero já tem um espaçamento bom */}
-      <Hero />
-
-      {/* Vamos adicionar espaçamento em cada seção, e usar o 'id' para navegação */}
-      <section id="sobre" className="py-16 px-4">
+    // Usamos o 'space-y-20' para garantir um espaçamento maior entre todas as grandes seções
+    <div className="space-y-20 pb-20"> 
+      
+      {/* 1. SEÇÃO DE APRESENTAÇÃO E SOBRE MIM */}
+      <section id="sobre" className="pt-8 px-4"> 
+        <Hero />
         <About />
       </section>
 
-      <section id="projetos" className="py-16 px-4">
+      {/* 2. SEÇÃO DE PROJETOS */}
+      <section id="projetos" className="px-4">
         <h2 className="text-3xl sm:text-4xl font-semibold mb-8 text-center">Meus Projetos</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={index} {...project} />
           ))}
         </div>
       </section>
 
-      <section id="experiencia" className="py-16 px-4">
+      {/* 3. SEÇÃO DE EXPERIÊNCIA PROFISSIONAL */}
+      <section id="experiencia" className="px-4">
         <Experience />
       </section>
 
-      <section id="educacao" className="py-16 px-4">
+      {/* 4. SEÇÃO DE FORMAÇÃO ACADÊMICA */}
+      <section id="formacao" className="px-4">
         <Education />
       </section>
-    </>
+
+      {/* 5. SEÇÃO DE CONTATO */}
+      <section id="contato" className="text-center px-4 pt-10">
+        <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Entre em Contato</h2>
+        <p className="text-lg text-gray-400">
+          Vamos transformar ideias em realidade.
+        </p>
+        {/* Você pode adicionar um formulário ou um link direto aqui */}
+      </section>
+
+    </div>
   );
 }

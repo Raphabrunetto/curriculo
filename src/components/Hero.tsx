@@ -5,38 +5,49 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    // Envolva o conteúdo com o motion.section
     <motion.section
-      className="text-center py-20 px-4"
-      initial={{ opacity: 0, y: 50 }}
+      className="text-center py-24 px-4" // py-24: Aumenta o espaçamento vertical para mais destaque
+      initial={{ opacity: 0, y: 30 }} // y: 30: Animação de subida mais sutil
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
       <div className="flex flex-col items-center">
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
+          initial={{ scale: 0, rotate: -180 }} // Adiciona um leve giro na entrada
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: 0.3, duration: 0.6, type: "spring", stiffness: 100 }} // Deixa a animação mais "suave" (spring)
         >
           <Image
-            src="/images/profile.jpg"
+            src="/images/profile.jpeg"
             alt="Sua Foto de Perfil"
-            width={128}
-            height={128}
-            className="rounded-full object-cover border-4 border-purple-500 mb-4"
+            width={160} // Aumentei o tamanho da foto
+            height={160}
+            className="rounded-full object-cover border-4 border-purple-500 shadow-2xl shadow-purple-500/50 mb-6" // shadow-2xl: Adiciona um brilho sutil
           />
         </motion.div>
+        
         <motion.h1
-          className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-2"
+          className="text-6xl sm:text-7xl font-extrabold mb-4 leading-tight" // text-7xl e font-extrabold: Título mais impactante
+          style={{ 
+            background: 'linear-gradient(90deg, #a78bfa 0%, #ec4899 100%)', // Gradiente mais claro para o modo escuro
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
         >
-          Olá, eu sou [Seu Nome]
+          Olá, eu sou [Raphael Brunetto!]
         </motion.h1>
-        <p className="text-xl sm:text-2xl text-gray-400 font-light">
-          Desenvolvedor Front-end | [Seu Título Profissional]
-        </p>
+        
+        <motion.p 
+          className="text-xl sm:text-2xl text-gray-300 font-normal mt-2" // mt-2: Espaçamento no topo
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }} // Animação posterior ao nome
+        >
+          Estudante de Engenharia de Software | UI/UX Enthusiast | Técnico de Operações
+        </motion.p>
       </div>
     </motion.section>
   );
