@@ -3,6 +3,7 @@ import About from '@/components/About';
 import Card from '@/components/Card';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
+import Skills from '@/components/Skills';
 
 export default function HomePage() {
   const projects = [
@@ -23,6 +24,11 @@ export default function HomePage() {
       <section id="sobre" className="pt-8 px-4"> 
         <Hero />
         <About />
+      </section>
+
+       {/* SEÇÃO DE HABILIDADES */}
+      <section id="habilidades" className="px-4"> 
+        <Skills />
       </section>
 
       {/* 2. SEÇÃO DE PROJETOS */}
