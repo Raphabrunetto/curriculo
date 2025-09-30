@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
-    // Isso é a sintaxe mais básica e menos propensa a erros na Vercel
-    tailwindcss: {}, 
+    // 🚨 Esta linha é a exigência da Vercel/Tailwind v4 🚨
+    '@tailwindcss/postcss': {}, 
     autoprefixer: {},
   },
 };
