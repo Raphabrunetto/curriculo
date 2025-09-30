@@ -64,7 +64,7 @@ const Experience = () => {
       role: "Técnico de Operações",
       company: "Vidya technology",
       period: "Abril 2025 - Atual",
-      description: "Vidya é uma empresa que atua na validação de integridade de ativos utilizando tecnologia. Trablho principalmente com operações, mas comecei a desenvolver automações usando Automa e n8n, além de começar a refatorar um Script python usando CV2.",
+      description: "Vidya é uma empresa que atua na validação de integridade de ativos utilizando tecnologia. Trabalho principalmente com operações, mas comecei a desenvolver automações usando Automa e n8n, além de começar a refatorar um Script python usando CV2.",
       logo: "/logos/empresa2.png", // Vidya
     },
   ];
