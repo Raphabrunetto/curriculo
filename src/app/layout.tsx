@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 // Mantenha esta linha aqui para garantir a injeção do CSS
 import './globals.css'; 
+import InteractiveBackground from '@/components/InteractiveBackground';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,16 +17,14 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      
-      {/* 1. CORREÇÃO: COLOCAR O FUNDO E TEXTO NO <body> */}
-      {/* Se a tela não ficar vermelha AGORA, o problema é de build do Tailwind. */}
-      <body className={`bg-red-500 text-white ${inter.className}`}>
+      <body className={`bg-gray-950 text-white ${inter.className}`}>
         
-        {/* 2. CORREÇÃO: A DIV INTERNA FICA SÓ COM O FLEXBOX PARA O LAYOUT */}
+        {/* NOVO: Fundo Interativo */}
+        <InteractiveBackground />
+        
         <div className="flex flex-col min-h-screen">
           <Header />
           
-          {/* AQUI ESTÁ A CENTRALIZAÇÃO: max-w-6xl mx-auto */}
           <main className="flex-grow max-w-6xl mx-auto w-full p-4 sm:p-8">
             {children}
           </main>

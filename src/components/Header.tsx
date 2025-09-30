@@ -12,7 +12,7 @@ const Header = () => {
         
         {/* Título */}
         <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          [Raphael Augusto Lira Brunetto]
+          [RB]
         </div>
         
         {/* Navegação */}
