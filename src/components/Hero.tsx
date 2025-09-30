@@ -20,9 +20,10 @@ const Hero = () => {
           <Image
             src="/images/profile.jpeg"
             alt="Sua Foto de Perfil"
-            width={160} // Aumentei o tamanho da foto
-            height={160}
-            className="rounded-full object-cover border-4 border-purple-500 shadow-2xl shadow-purple-500/50 mb-6" // shadow-2xl: Adiciona um brilho sutil
+            width={200} // ⬅️ AUMENTADO
+            height={200} // ⬅️ AUMENTADO
+            // ⬅️ MOLDURA MAIS GROSSA (border-6) e SOMBRA MAIS FORTE (shadow-3xl)
+            className="rounded-full object-cover border-6 border-purple-500 shadow-3xl shadow-purple-500/50 mb-6" 
           />
         </motion.div>
         
