@@ -18,13 +18,13 @@ const Footer = () => {
             <FaLinkedin size={24} />
           </Link>
           
-          {/* Email (NOVO) */}
+          {/* Email */}
           {/* O mailto: abre o cliente de e-mail padrão do usuário */}
           <Link href="mailto:raphabrunetto@gmail.com" aria-label="Email" className="hover:text-gray-400 transition-colors">
             <FaEnvelope size={24} />
           </Link>
         </div>
-        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} [Seu Nome]. Todos os direitos reservados.</p>
+        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} [Raphael]. Todos os direitos reservados.</p>
       </div>
     </footer>
   );
