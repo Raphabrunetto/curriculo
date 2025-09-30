@@ -3,17 +3,17 @@
 import { useCallback } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import Particles from "@tsparticles/react"; 
-import type { Container } from "@tsparticles/engine"; 
+import type { Container, Engine } from "@tsparticles/engine"; 
 
 const InteractiveBackground = () => {
   // Configuração para carregar o 'slim' bundle
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     // Agora que o erro de módulo foi resolvido, essa linha funciona
     await loadSlim(engine); 
   }, []);
 
   // Callback para quando o container for carregado
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+  const particlesLoaded = useCallback(async (_container: Container | undefined) => {
     // console.log(container); 
   }, []);
 
