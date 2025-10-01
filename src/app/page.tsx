@@ -4,6 +4,7 @@ import Card from '@/components/Card';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
+import Volunteer from '@/components/Volunteer';
 
 export default function HomePage() {
   const projects = [
@@ -51,11 +52,19 @@ export default function HomePage() {
         <Education />
       </section>
 
+       {/* ⬅️ NOVO: SEÇÃO DE TRABALHOS VOLUNTÁRIOS */}
+      <section id="voluntario" className="px-4"> 
+        <Volunteer />
+      </section>
+
       {/* 5. SEÇÃO DE CONTATO */}
       <section id="contato" className="text-center px-4 pt-10">
-        <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Entre em Contato</h2>
+        <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Entre em Contato!</h2>
         <p className="text-lg text-gray-400">
           Vamos transformar ideias em realidade.
+        </p>
+        <p className="text-lg text-gray-400">
+          Basta clicar em um dos ícones abaixo para entrar em contato!
         </p>
         {/* Você pode adicionar um formulário ou um link direto aqui */}
       </section>
