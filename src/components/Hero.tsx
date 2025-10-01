@@ -38,7 +38,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          Eu sou [Raphael Brunetto!]
+          [Raphael Brunetto]
         </motion.h1>
         
         <motion.p 
