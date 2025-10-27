@@ -5,6 +5,7 @@ import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import Volunteer from '@/components/Volunteer';
+import Certifications from '@/components/Certifications';
 
 export default function HomePage() {
   const projects = [
@@ -30,6 +31,11 @@ export default function HomePage() {
        {/* SEÇÃO DE HABILIDADES */}
       <section id="habilidades" className="px-4"> 
         <Skills />
+      </section>
+
+      {/*  SEÇÃO DE CERTIFICADOS */}
+      <section id="certificados" className="px-4"> 
+        <Certifications />
       </section>
 
       {/* 2. SEÇÃO DE PROJETOS */}

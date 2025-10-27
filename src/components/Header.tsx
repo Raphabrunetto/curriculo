@@ -24,11 +24,12 @@ const Header = () => {
             <li>
               <Link href="#projetos" className="text-white hover:text-purple-400 transition-colors">Projetos</Link>
             </li>
-            {/* NOVO LINK ADICIONADO AQUI */}
+            <li>
+              <Link href="#certificados" className="text-white hover:text-purple-400 transition-colors">Certificados</Link>
+            </li>
             <li>
               <Link href="#voluntario" className="text-white hover:text-purple-400 transition-colors">Voluntário</Link>
             </li>
-            {/* FIM DO NOVO LINK */}
             <li>
               <Link href="#contato" className="text-white hover:text-purple-400 transition-colors">Contato</Link>
             </li>
