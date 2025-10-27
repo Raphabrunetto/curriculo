@@ -6,6 +6,7 @@ import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import Volunteer from '@/components/Volunteer';
 import Certifications from '@/components/Certifications';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function HomePage() {
   const projects = [
@@ -63,16 +64,22 @@ export default function HomePage() {
         <Volunteer />
       </section>
 
-      {/* 5. SEÇÃO DE CONTATO */}
-      <section id="contato" className="text-center px-4 pt-10">
-        <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Entre em Contato!</h2>
-        <p className="text-lg text-gray-400">
-          Vamos transformar ideias em realidade.
-        </p>
-        <p className="text-lg text-gray-400">
-          Basta clicar em um dos ícones abaixo para entrar em contato!
-        </p>
-        {/* Você pode adicionar um formulário ou um link direto aqui */}
+      {/* 5. SEÇÃO DE CONTATO - IMPLEMENTAÇÃO FINAL COM WHATSAPP */}
+      <section id="contato" className="px-4 pt-10">
+        <h2 className="text-3xl sm:text-4xl font-semibold mb-8 text-center">Vamos Trabalhar Juntos!</h2>
+        
+        <div className="max-w-xl mx-auto text-center">
+            <p className="text-lg text-gray-400 mb-8">
+                Tenho interesse em novas oportunidades! Entre em contato diretamente pelo WhatsApp para uma resposta rápida:
+            </p>
+            
+            {/* BOTÃO WHATSAPP - Substitui os links de texto genéricos */}
+            <WhatsAppButton />
+            
+            {/* Texto de reforço, já que os outros links (Email, LinkedIn) estão no Footer */}
+            <p className="text-sm text-gray-500 mt-4">Ou confira os links diretos no rodapé para GitHub LinkedIn e E-mail.</p>
+        </div>
+
       </section>
 
     </div>
