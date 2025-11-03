@@ -57,7 +57,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador. O site rec
 
 Este projeto é hospedado na **Vercel**, a plataforma recomendada pelos criadores do Next.js, garantindo o melhor desempenho e o *Continuous Deployment (CD)*.
 
-* **Deploy Atual:** [Cole aqui a URL final do seu projeto na Vercel]
+* **Deploy Atual:** curriculo-rb.vercel.app
 * **Deploy Automático:** Qualquer `git push` para a branch `main` dispara um *build* e atualização automática na Vercel.
 
 ---
