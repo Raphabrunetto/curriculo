@@ -1,63 +1,58 @@
 "use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion'; // ⬅️ Importação necessária para animação
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'; 
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
+const socialLinks = [
+  {
+    icon: FaGithub,
+    href: 'https://github.com/Raphabrunetto',
+    label: 'GitHub',
+  },
+  {
+    icon: FaLinkedin,
+    href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
+    label: 'LinkedIn',
+  },
+  {
+    icon: FaEnvelope,
+    href: 'mailto:raphabrunetto@gmail.com',
+    label: 'E-mail',
+  },
+];
 
 const Footer = () => {
   return (
-    <footer className="py-8 px-4 sm:px-8 bg-gray-950 border-t border-gray-800 text-center">
-      <div className="container mx-auto">
-        <div className="flex justify-center space-x-6 mb-4">
-          
-          {/* GitHub: USANDO motion.a para animação */}
-          <motion.a
-            href="https://github.com/Raphabrunetto" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            aria-label="GitHub" 
-            className="text-gray-400 hover:text-purple-400 transition-colors"
-            initial={{ opacity: 0, y: 10 }} // Animação de entrada
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            whileHover={{ scale: 1.2 }} // ⬅️ ANIMAÇÃO HOVER
-            whileTap={{ scale: 0.9 }}
-          >
-            <FaGithub size={24} />
-          </motion.a>
-          
-          {/* LinkedIn: USANDO motion.a para animação */}
-          <motion.a
-            href="https://www.linkedin.com/in/raphael-brunetto-dev" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            aria-label="LinkedIn" 
-            className="text-gray-400 hover:text-purple-400 transition-colors"
-            initial={{ opacity: 0, y: 10 }} // Animação de entrada
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }} // Delay escalonado
-            whileHover={{ scale: 1.2 }} // ⬅️ ANIMAÇÃO HOVER
-            whileTap={{ scale: 0.9 }}
-          >
-            <FaLinkedin size={24} />
-          </motion.a>
-          
-          {/* Email: USANDO motion.a para animação */}
-          <motion.a
-            href="mailto:raphabrunetto@gmail.com" 
-            aria-label="Email" 
-            className="text-gray-400 hover:text-purple-400 transition-colors"
-            initial={{ opacity: 0, y: 10 }} // Animação de entrada
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }} // Delay escalonado
-            whileHover={{ scale: 1.2 }} // ⬅️ ANIMAÇÃO HOVER
-            whileTap={{ scale: 0.9 }}
-          >
-            <FaEnvelope size={24} />
-          </motion.a>
-          
+    <footer className="border-t border-white/10 bg-[#111112] py-10 text-center text-[#E0E5E9]/70">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 sm:px-6">
+        <div className="flex items-center gap-4">
+          {socialLinks.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/5 text-[#E0E5E9] transition-colors hover:border-[#0A62D0] hover:bg-[#0A62D0]/20 hover:text-[#0A62D0]"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Icon size={20} />
+              </motion.a>
+            );
+          })}
         </div>
-        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Raphael Brunetto. Todos os direitos reservados.</p>
+        <p className="text-xs uppercase tracking-[0.35em] text-[#F3D849]/70">
+          Construindo experiencias que deixam a tecnologia mais humana
+        </p>
+        <p className="text-sm text-[#E0E5E9]/50">
+          &copy; {new Date().getFullYear()} Raphael Brunetto. Todos os direitos reservados.
+        </p>
       </div>
     </footer>
   );

@@ -1,87 +1,87 @@
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
 import Card from '@/components/Card';
-import Experience from '@/components/Experience';
-import Education from '@/components/Education';
-import Skills from '@/components/Skills';
-import Volunteer from '@/components/Volunteer';
-import Certifications from '@/components/Certifications';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import { projects } from '@/data/projects';
+
+const quickLinks = [
+  {
+    title: 'Sobre mim',
+    description: 'Quem sou, minhas habilidades e experiencia profissional.',
+    href: '/sobre',
+  },
+  {
+    title: 'Projetos',
+    description: 'Veja os projetos que construi e os problemas que resolvi.',
+    href: '/projetos',
+  },
+  {
+    title: 'Certificados',
+    description: 'Cursos e certificacoes que sustentam minha formacao continua.',
+    href: '/certificados',
+  },
+  {
+    title: 'Contato',
+    description: 'Fale comigo diretamente para oportunidades e colaboracoes.',
+    href: '/contato',
+  },
+];
+
+const highlightProjects = projects.slice(0, 2);
 
 export default function HomePage() {
-  const projects = [
-    {
-      title: "Projeto One Piece",
-      description: "Site feito em HTML, CSS e JS para aprender os básicos e gramática das linguagens.",
-      techs: ["HTML", "CSS", "JavaScript"],
-      link: "https://raphabrunetto.github.io/projeto-one-piece"
-    },
-    // Adicione os seus outros projetos
-  ];
-
   return (
-    // Usamos o 'space-y-20' para garantir um espaçamento maior entre todas as grandes seções
-    <div className="space-y-20 pb-20"> 
-      
-      {/* 1. SEÇÃO DE APRESENTAÇÃO E SOBRE MIM */}
-      <section id="sobre" className="pt-8 px-4"> 
-        <Hero />
-        <About />
-      </section>
+    <div className="space-y-20 pb-20">
+      <Hero />
 
-       {/* SEÇÃO DE HABILIDADES */}
-      <section id="habilidades" className="px-4"> 
-        <Skills />
-      </section>
-
-      {/*  SEÇÃO DE CERTIFICADOS */}
-      <section id="certificados" className="px-4"> 
-        <Certifications />
-      </section>
-
-      {/* 2. SEÇÃO DE PROJETOS */}
-      <section id="projetos" className="px-4">
-        <h2 className="text-3xl sm:text-4xl font-semibold mb-8 text-center">Meus Projetos</h2>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} {...project} />
+      <section className="space-y-6">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center text-[#E0E5E9]">Escolha por onde comecar</h2>
+        <p className="text-lg text-[#E0E5E9]/70 text-center max-w-3xl mx-auto">
+          Navegue pelas paginas para conhecer minha trajetoria, resultados que entreguei e como podemos construir algo
+          juntos.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {quickLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#0A62D0]/60 hover:bg-[#0A62D0]/10"
+            >
+              <h3 className="text-xl font-semibold text-[#E0E5E9] mb-2 group-hover:text-[#F3D849] transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-[#E0E5E9]/70 text-sm leading-relaxed">{item.description}</p>
+              <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#0A62D0] group-hover:text-[#F3D849]">
+                Acessar pagina{' '}
+                <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={12} />
+              </span>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* 3. SEÇÃO DE EXPERIÊNCIA PROFISSIONAL */}
-      <section id="experiencia" className="px-4">
-        <Experience />
-      </section>
-
-      {/* 4. SEÇÃO DE FORMAÇÃO ACADÊMICA */}
-      <section id="formacao" className="px-4">
-        <Education />
-      </section>
-
-       {/* ⬅️ NOVO: SEÇÃO DE TRABALHOS VOLUNTÁRIOS */}
-      <section id="voluntario" className="px-4"> 
-        <Volunteer />
-      </section>
-
-      {/* 5. SEÇÃO DE CONTATO - IMPLEMENTAÇÃO FINAL COM WHATSAPP */}
-      <section id="contato" className="px-4 pt-10">
-        <h2 className="text-3xl sm:text-4xl font-semibold mb-8 text-center">Vamos Trabalhar Juntos!</h2>
-        
-        <div className="max-w-xl mx-auto text-center">
-            <p className="text-lg text-gray-400 mb-8">
-                Tenho interesse em novas oportunidades! Entre em contato diretamente pelo WhatsApp para uma resposta rápida:
+      <section className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">Projetos em destaque</h2>
+            <p className="text-[#E0E5E9]/70 mt-2 max-w-2xl">
+              Uma amostra do que tenho construindo recentemente. Veja todos os detalhes na pagina de projetos.
             </p>
-            
-            {/* BOTÃO WHATSAPP - Substitui os links de texto genéricos */}
-            <WhatsAppButton />
-            
-            {/* Texto de reforço, já que os outros links (Email, LinkedIn) estão no Footer */}
-            <p className="text-sm text-gray-500 mt-4">Ou confira os links diretos no rodapé para GitHub LinkedIn e E-mail.</p>
+          </div>
+          <Link
+            href="/projetos"
+            className="inline-flex items-center text-sm font-semibold text-[#0A62D0] hover:text-[#F3D849] transition-colors"
+          >
+            Ver todos
+            <FaArrowRight className="ml-2" size={12} />
+          </Link>
         </div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {highlightProjects.map((project) => (
+            <Card key={project.title} {...project} />
+          ))}
+        </div>
       </section>
-
     </div>
   );
 }

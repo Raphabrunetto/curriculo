@@ -1,6 +1,3 @@
-import React from 'react';
-// Não precisa do 'Image' se você não tiver logo para projetos voluntários
-
 interface VolunteerItemProps {
   role: string;
   organization: string;
@@ -8,65 +5,50 @@ interface VolunteerItemProps {
   description: string;
 }
 
-const VolunteerItem: React.FC<VolunteerItemProps> = ({ role, organization, period, description }) => (
-  <div className="block group h-full">
-    <div className="p-6 rounded-lg bg-gray-800 border border-gray-700 h-full flex flex-col justify-between
-                    transition-transform duration-300 transform group-hover:scale-[1.02] 
-                    group-hover:shadow-xl group-hover:shadow-purple-500/20">
-      
-      <div>
-        {/* Título (Seu Papel/Cargo) */}
-        <h3 className="text-xl font-bold text-gray-100 group-hover:text-purple-400 transition-colors mb-1">
-          {role}
-        </h3>
-        
-        {/* Organização */}
-        <p className="text-gray-400 italic mb-2">
-          {organization}
-        </p>
-        
-        {/* Período */}
-        <p className="text-gray-500 text-sm mb-4">
-          {period}
-        </p>
-        
-        {/* Descrição das Atividades */}
-        <p className="text-gray-300 leading-relaxed text-sm">
-          {description}
-        </p>
-      </div>
-    </div>
+const VolunteerItem = ({ role, organization, period, description }: VolunteerItemProps) => (
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-[#0A62D0]/50 hover:bg-[#0A62D0]/10 hover:shadow-[0_20px_45px_rgba(10,98,208,0.45)]">
+    <h3 className="text-xl font-semibold text-[#E0E5E9]">{role}</h3>
+    <p className="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-[#0A62D0]/90">{organization}</p>
+    <p className="mt-3 text-xs font-semibold text-[#E0E5E9]/60">{period}</p>
+    <p className="mt-4 text-sm leading-relaxed text-[#E0E5E9]/75">{description}</p>
   </div>
 );
 
 const Volunteer = () => {
-  const volunteerWork = [
+  const volunteerWork: VolunteerItemProps[] = [
     {
-      role: "Voluntário em trabalho comunitário para o CEI Maria Amélia",
-      organization: "UP",
-      period: "Julho 2024 - Dezembro 2024",
-      description: "Realizada uma palestra sobre como usar a tecnologia para o desenvolvimento pessoal, como ela vai estar presente no futuro e a a capacidade de crescimento atrelada a tecnologia."
+      role: 'Palestrante em tecnologia e futuro',
+      organization: 'CEI Maria Amelia / UP',
+      period: 'Julho 2024 - Dezembro 2024',
+      description:
+        'Ministrei palestras sobre como a tecnologia pode impulsionar desenvolvimento pessoal e profissional, mostrando caminhos acessiveis para quem esta comecando.',
     },
     {
-      role: "Iniciativa para Pessoas carentes",
-      organization: "UP",
-      period: "2023",
-      description: "Realizado, juntamente da Universidade, um trabalho voluntariado para ajudar pessoas carentes em épocas complicadas. Realizamos arrecadações e entregas de itens e alimentos à população."
+      role: 'Campanha solidaria',
+      organization: 'Universidade Positivo',
+      period: '2023',
+      description:
+        'Ajudei a organizar arrecadacoes e entregas de itens essenciais para familias em situacao de vulnerabilidade, reforcando o impacto social da tecnologia.',
     },
-    // Adicione mais trabalhos voluntários aqui!
   ];
 
   return (
-    <div id="voluntario" className="max-w-4xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-12">Trabalhos Voluntários</h2>
-      
-      {/* Usando a mesma grade de 2 colunas que as outras seções */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {volunteerWork.map((item, index) => (
-          <VolunteerItem key={index} {...item} />
+    <section className="max-w-5xl mx-auto space-y-10">
+      <div className="text-center space-y-3">
+        <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#F3D849]">
+          voluntariado
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">
+          Projetos sociais que me conectam com pessoas
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {volunteerWork.map((item) => (
+          <VolunteerItem key={item.role} {...item} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,52 +1,65 @@
-import React from 'react';
-import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaGitAlt, FaDocker, FaPython } from 'react-icons/fa';
+import {
+  FaReact,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaGitAlt,
+  FaDocker,
+  FaPython,
+} from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss, SiMysql, SiMongodb } from 'react-icons/si';
 
-// Certifique-se de que todas as bibliotecas estão instaladas: npm install react-icons
-
-// Array com suas habilidades e os ícones correspondentes (12 itens no total)
 const skills = [
-  // Linha 1: Front-end
-  { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400' },
-  { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
-  { name: 'React', icon: FaReact, color: 'text-cyan-400' },
-  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' }, 
-  
-  // Linha 2: Estilização e Ferramentas
-  { name: 'HTML5', icon: FaHtml5, color: 'text-orange-600' },
-  { name: 'CSS3', icon: FaCss3Alt, color: 'text-blue-400' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-500' },
-  { name: 'Git & GitHub', icon: FaGitAlt, color: 'text-orange-700' },
-  
-  // Linha 3: Back-end e Banco de Dados (Os 4 novos itens)
-  { name: 'Python', icon: FaPython, color: 'text-yellow-500' },
-  { name: 'Docker', icon: FaDocker, color: 'text-blue-400' },
-  { name: 'MySQL', icon: SiMysql, color: 'text-blue-700' },
-  { name: 'MongoDB', icon: SiMongodb, color: 'text-green-600' },
+  { name: 'JavaScript', icon: FaJs, accent: '#FACC15' },
+  { name: 'TypeScript', icon: SiTypescript, accent: '#38BDF8' },
+  { name: 'React', icon: FaReact, accent: '#7DD3FC' },
+  { name: 'Next.js', icon: SiNextdotjs, accent: '#E0E5E9' },
+  { name: 'HTML5', icon: FaHtml5, accent: '#F97316' },
+  { name: 'CSS3', icon: FaCss3Alt, accent: '#60A5FA' },
+  { name: 'Tailwind', icon: SiTailwindcss, accent: '#22D3EE' },
+  { name: 'Git & GitHub', icon: FaGitAlt, accent: '#FB7185' },
+  { name: 'Python', icon: FaPython, accent: '#93C5FD' },
+  { name: 'Docker', icon: FaDocker, accent: '#38BDF8' },
+  { name: 'MySQL', icon: SiMysql, accent: '#0284C7' },
+  { name: 'MongoDB', icon: SiMongodb, accent: '#34D399' },
 ];
 
 const Skills = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-12">Habilidades Técnicas</h2>
-      
-      {/* Grid: 4 colunas em telas grandes (lg), 3 em telas médias (sm) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        {skills.map((skill, index) => {
+    <section className="max-w-5xl mx-auto space-y-10">
+      <div className="text-center space-y-3">
+        <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#F3D849]">
+          habilidades
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">
+          Toolkit que levo para resolver desafios
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {skills.map((skill) => {
           const Icon = skill.icon;
           return (
-            <div 
-              key={index} 
-              className="p-4 rounded-lg bg-gray-800 border border-gray-700 flex flex-col items-center 
-                         transition-transform duration-300 hover:scale-[1.05] hover:shadow-xl hover:shadow-purple-500/20"
+            <div
+              key={skill.name}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#0A62D0]/50 hover:bg-[#0A62D0]/10 hover:shadow-[0_18px_40px_rgba(10,98,208,0.45)]"
             >
-              <Icon className={`${skill.color} mb-3`} size={32} />
-              <p className="text-sm font-medium text-gray-200 text-center">{skill.name}</p>
+              <div
+                className="absolute -right-8 -top-8 h-20 w-20 rounded-full opacity-20 blur-xl"
+                style={{ background: skill.accent }}
+              />
+              <span
+                className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-black/10 text-2xl"
+                style={{ color: skill.accent }}
+              >
+                <Icon />
+              </span>
+              <p className="text-sm font-medium text-[#E0E5E9]">{skill.name}</p>
             </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

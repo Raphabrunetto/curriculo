@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    // 🚨 Esta linha é a exigência da Vercel/Tailwind v4 🚨
+    // Esta linha garante compatibilidade com Tailwind v4 no deploy
     '@tailwindcss/postcss': {}, 
     autoprefixer: {},
   },
