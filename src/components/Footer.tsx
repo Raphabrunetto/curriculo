@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const socialLinks = [
@@ -29,21 +28,17 @@ const Footer = () => {
           {socialLinks.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.a
+              <a
                 key={item.label}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.label}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/5 text-[#E0E5E9] transition-colors hover:border-[#0A62D0] hover:bg-[#0A62D0]/20 hover:text-[#0A62D0]"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                className="grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/5 text-[#E0E5E9] transition-transform transition-colors hover:-translate-y-1 hover:border-[#0A62D0] hover:bg-[#0A62D0]/20 hover:text-[#0A62D0] animate-fade-in-up"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
                 <Icon size={20} />
-              </motion.a>
+              </a>
             );
           })}
         </div>

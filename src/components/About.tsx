@@ -12,7 +12,7 @@ const About = () => {
 
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-lg text-[#E0E5E9]/80 space-y-6 leading-relaxed shadow-[0_20px_45px_rgba(10,98,208,0.35)]">
         <p>
-          Sou estudante de Engenharia de Software pela Universidade Positivo (UP), no oitavo periodo. Nesses ultimos
+          Sou formado em Engenharia de Software pela Universidade Positivo (UP). Nos últimos
           anos mergulhei em linguagens de programacao, bancos de dados, arquitetura de aplicacoes e metodologias ageis
           como SCRUM para construir projetos mais colaborativos e previsiveis.
         </p>

@@ -23,3 +23,97 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation-name: fade-in-up;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in-soft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: var(--fade-target, 1);
+  }
+}
+
+.animate-fade-in-soft {
+  opacity: 0;
+  animation: fade-in-soft 1.2s ease forwards;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[data-animate="spin-slow"] {
+  animation: spin-slow 30s linear infinite;
+}
+
+@keyframes wave-float {
+  0% {
+    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
+  }
+  50% {
+    transform: translate3d(-50%, 22px, 0) rotate(var(--wave-rotation));
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
+  }
+}
+
+.wave-layer {
+  will-change: transform;
+  animation-name: wave-float;
+  animation-duration: var(--wave-duration, 28s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.wave-path {
+  fill: none;
+  stroke: rgba(224, 229, 233, 0.55);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  mix-blend-mode: screen;
+  filter: blur(0.2px);
+  transition: opacity 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-soft {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-animate="spin-slow"],
+  .wave-layer {
+    animation: none;
+  }
+
+  .wave-layer {
+    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
+  }
+}

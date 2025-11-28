@@ -1,20 +1,24 @@
-const getTechColors = (tech: string) => {
-  switch (tech.toLowerCase()) {
-    case 'html':
-      return 'border border-[#F97316]/40 text-[#F97316] bg-[#F97316]/10';
-    case 'css':
-      return 'border border-[#3B82F6]/40 text-[#3B82F6] bg-[#3B82F6]/10';
-    case 'javascript':
-    case 'js':
-      return 'border border-[#FACC15]/50 text-[#FACC15] bg-[#FACC15]/10';
-    case 'python':
-      return 'border border-[#60A5FA]/40 text-[#60A5FA] bg-[#1D4ED8]/10';
-    case 'react':
-      return 'border border-[#7DD3FC]/40 text-[#7DD3FC] bg-[#0EA5E9]/10';
-    default:
-      return 'border border-white/15 text-[#E0E5E9]/80 bg-white/5';
-  }
+const normalizeTech = (tech: string) =>
+  tech
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+
+const techColors: Record<string, string> = {
+  html: 'border border-[#F97316]/40 text-[#F97316] bg-[#F97316]/10',
+  css: 'border border-[#3B82F6]/40 text-[#3B82F6] bg-[#3B82F6]/10',
+  javascript: 'border border-[#FACC15]/50 text-[#FACC15] bg-[#FACC15]/10',
+  js: 'border border-[#FACC15]/50 text-[#FACC15] bg-[#FACC15]/10',
+  python: 'border border-[#60A5FA]/40 text-[#60A5FA] bg-[#1D4ED8]/10',
+  react: 'border border-[#7DD3FC]/40 text-[#7DD3FC] bg-[#0EA5E9]/10',
+  docker: 'border border-[#0DB7ED]/40 text-[#0DB7ED] bg-[#0DB7ED]/10',
+  bash: 'border border-[#10B981]/40 text-[#34D399] bg-[#065F46]/10',
+  monday: 'border border-[#22C55E]/40 text-[#22C55E] bg-[#14532D]/10',
+  automacao: 'border border-[#A855F7]/35 text-[#C084FC] bg-[#4C1D95]/15',
 };
+
+const getTechColors = (tech: string) =>
+  techColors[normalizeTech(tech)] ?? 'border border-white/15 text-[#E0E5E9]/80 bg-white/5';
 
 interface CardProps {
   title: string;

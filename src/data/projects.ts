@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       'Refatoracao de script em Python com OpenCV para padronizar analise e automaticamente aplicar edição nas imagens, realizei refatoração do codigo e implementação para Windows por meio do Docker.',
     techs: ['Python', 'Docker', 'BASH'],
-    link: '#',
+    link: 'https://github.com/Raphabrunetto/AutoEditDeImg',
   },
 
   {
