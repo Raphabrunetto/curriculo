@@ -44,7 +44,7 @@ const Experience = () => {
       company: 'Vidya Technology',
       period: 'Abril 2025 - Atual',
       description:
-        'Cuido de operacoes e crio automacoes com Automa e n8n para reduzir tarefas manuais. Tambem refatorei scripts em Python com OpenCV para acelerar analises de imagens.',
+        'Cuido de operacoes, crio automacoes para o Monday para reduzir tarefas manuais e aumentar a acertividade no controle de tempo e tasks. Tambem refatorei scripts em Python com OpenCV para acelerar analises de imagens.',
       logo: '/logos/empresa2.png',
     },
   ];
