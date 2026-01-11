@@ -54,7 +54,7 @@ const Hero = () => {
         <div className="relative animate-fade-in-up" style={{ animationDelay: '0s' }}>
           <div className="absolute -inset-4 rounded-full border border-[#FF7A7A]/35 blur-md" />
           <Image
-            src="/images/WhatsApp%20Image%202026-01-11%20at%2012.10.38.jpeg"
+            src="/images/eu.jpeg"
             alt="Foto de Raphael Brunetto"
             width={200}
             height={200}
