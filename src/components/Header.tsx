@@ -44,29 +44,17 @@ const Header = () => {
   const linkBaseClasses =
     'inline-flex items-center gap-3 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200';
   const desktopLinkClasses =
-    'text-[#E0E5E9] hover:text-[#F3D849] hover:bg-white/5';
+    'text-[#E6E6E6] hover:text-[#FF7A7A] hover:bg-white/5';
   const activeClasses =
-    'text-[#191718] bg-[#F3D849] ring-1 ring-[#F3D849]/60 shadow-[0_0_14px_-2px_rgba(243,216,73,0.55)]';
+    'text-[#141414] bg-[#FF7A7A] ring-1 ring-[#FF7A7A]/60 shadow-[0_0_14px_-2px_rgba(255,122,122,0.55)]';
 
   return (
-    <header className="py-5 w-full sticky top-0 z-50 bg-[#191718]/95 backdrop-blur border-b border-white/10">
+    <header className="py-5 w-full sticky top-0 z-50 bg-transparent">
       <nav className="max-w-6xl mx-auto px-4 sm:px-8">
-        <div className="flex justify-between items-center gap-6">
-          <Link
-            href="/"
-            className="flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 pr-6 shadow-[0_8px_24px_rgba(0,0,0,0.45)] transition-transform duration-300 hover:-translate-y-0.5 hover:border-[#0A62D0]/50"
-          >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0A62D0] text-[#E0E5E9] text-base font-bold">
-              RB
-            </span>
-            <span className="flex flex-col leading-tight text-left">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#F3D849]">portfolio</span>
-              <span className="text-sm font-semibold text-[#E0E5E9] tracking-wide">Raphael Brunetto</span>
-            </span>
-          </Link>
+        <div className="flex items-center justify-end sm:justify-center gap-6">
           <button
             type="button"
-            className="sm:hidden inline-flex items-center justify-center p-2 rounded-md text-[#E0E5E9] hover:text-[#F3D849] focus:outline-none focus:ring-2 focus:ring-[#0A62D0]"
+            className="sm:hidden inline-flex items-center justify-center p-2 rounded-md text-[#E6E6E6] hover:text-[#FF7A7A] focus:outline-none focus:ring-2 focus:ring-[#D14949]"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Abrir menu de navegacao"
           >
@@ -87,7 +75,7 @@ const Header = () => {
                     >
                       <span
                         className={`grid h-8 w-8 place-items-center rounded-full ${
-                          isCurrent ? 'bg-[#191718]/10 text-[#191718]' : 'bg-[#0A62D0]/10 text-[#0A62D0]'
+                          isCurrent ? 'bg-[#141414]/10 text-[#141414]' : 'bg-[#D14949]/10 text-[#D14949]'
                         }`}
                       >
                         <Icon size={16} />
@@ -119,14 +107,14 @@ const Header = () => {
                       <span className="flex items-center gap-3">
                         <span
                           className={`grid h-9 w-9 place-items-center rounded-full ${
-                            isCurrent ? 'bg-[#191718]/10 text-[#191718]' : 'bg-[#0A62D0]/15 text-[#0A62D0]'
+                            isCurrent ? 'bg-[#141414]/10 text-[#141414]' : 'bg-[#D14949]/15 text-[#D14949]'
                           }`}
                         >
                           <Icon size={18} />
                         </span>
                       {item.label}
                       </span>
-                      <FiArrowUpRight className={isCurrent ? 'text-[#191718]' : 'text-[#F3D849]'} />
+                      <FiArrowUpRight className={isCurrent ? 'text-[#141414]' : 'text-[#FF7A7A]'} />
                     </Link>
                   </li>
                 );

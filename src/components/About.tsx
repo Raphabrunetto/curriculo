@@ -2,15 +2,15 @@ const About = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="text-center">
-        <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#F3D849]">
+        <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           Sobre mim
         </span>
-        <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">
+        <h2 className="mt-4 text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
           Gosto de transformar problema complicado em solucao simples
         </h2>
       </div>
 
-      <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-lg text-[#E0E5E9]/80 space-y-6 leading-relaxed shadow-[0_20px_45px_rgba(10,98,208,0.35)]">
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-lg text-[#E6E6E6]/80 space-y-6 leading-relaxed shadow-[0_20px_45px_rgba(209,73,73,0.35)]">
         <p>
           Sou formado em Engenharia de Software pela Universidade Positivo (UP), aguardando meu diploma. Nos últimos
           anos mergulhei em linguagens de programacao, bancos de dados, arquitetura de aplicacoes e metodologias ageis

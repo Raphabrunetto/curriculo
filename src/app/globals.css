@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #191718;
-  --color-surface: rgba(14, 16, 19, 0.75);
-  --color-accent: #0a62d0;
-  --color-highlight: #f3d849;
-  --color-foreground: #e0e5e9;
-  --color-muted: rgba(224, 229, 233, 0.65);
+  --color-background: #0f0f0f;
+  --color-surface: rgba(20, 20, 20, 0.8);
+  --color-accent: #d14949;
+  --color-highlight: #ff7a7a;
+  --color-foreground: #e6e6e6;
+  --color-muted: rgba(230, 230, 230, 0.65);
 }
 
 @theme inline {
@@ -70,34 +70,13 @@ body {
   animation: spin-slow 30s linear infinite;
 }
 
-@keyframes wave-float {
-  0% {
-    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
-  }
-  50% {
-    transform: translate3d(-50%, 22px, 0) rotate(var(--wave-rotation));
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
-  }
+.neon-border {
+  border-color: rgba(209, 73, 73, 0.55);
+  box-shadow: 0 0 0 1px rgba(209, 73, 73, 0.45), 0 0 28px rgba(209, 73, 73, 0.25);
 }
 
-.wave-layer {
-  will-change: transform;
-  animation-name: wave-float;
-  animation-duration: var(--wave-duration, 28s);
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-.wave-path {
-  fill: none;
-  stroke: rgba(224, 229, 233, 0.55);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  mix-blend-mode: screen;
-  filter: blur(0.2px);
-  transition: opacity 0.4s ease;
+.neon-border:hover {
+  box-shadow: 0 0 0 1px rgba(255, 122, 122, 0.6), 0 0 32px rgba(255, 122, 122, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -108,12 +87,7 @@ body {
     transform: none;
   }
 
-  [data-animate="spin-slow"],
-  .wave-layer {
+  [data-animate="spin-slow"] {
     animation: none;
-  }
-
-  .wave-layer {
-    transform: translate3d(-50%, 0, 0) rotate(var(--wave-rotation));
   }
 }

@@ -18,31 +18,33 @@ const techColors: Record<string, string> = {
 };
 
 const getTechColors = (tech: string) =>
-  techColors[normalizeTech(tech)] ?? 'border border-white/15 text-[#E0E5E9]/80 bg-white/5';
+  techColors[normalizeTech(tech)] ?? 'border border-white/15 text-[#E6E6E6]/80 bg-white/5';
 
 interface CardProps {
   title: string;
   description: string;
   techs: string[];
   link: string;
+  highlight?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, techs, link }) => {
+const Card: React.FC<CardProps> = ({ title, description, techs, link, highlight = false }) => {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer" className="block group h-full">
       <div
-        className="p-6 rounded-2xl bg-white/5 border border-white/10 h-full flex flex-col justify-between
-                      transition-transform duration-300 transform group-hover:-translate-y-2 group-hover:border-[#0A62D0]/60 group-hover:bg-[#0A62D0]/10 group-hover:shadow-[0_20px_45px_rgba(10,98,208,0.45)]"
+        className={`p-6 rounded-2xl bg-white/5 border border-white/10 h-full flex flex-col justify-between transition-transform duration-300 transform group-hover:-translate-y-2 group-hover:border-[#D14949]/60 group-hover:bg-[#D14949]/10 group-hover:shadow-[0_20px_45px_rgba(209,73,73,0.45)] ${
+          highlight ? 'neon-border' : ''
+        }`}
       >
         <div>
-          <h3 className="text-xl font-semibold mb-3 text-[#E0E5E9] group-hover:text-[#F3D849] transition-colors">
+          <h3 className="text-xl font-semibold mb-3 text-[#E6E6E6] group-hover:text-[#FF7A7A] transition-colors">
             {title}
           </h3>
-          <p className="text-[#E0E5E9]/70 text-sm mb-4 leading-relaxed">{description}</p>
+          <p className="text-[#E6E6E6]/70 text-sm mb-4 leading-relaxed">{description}</p>
         </div>
         
         <div>
-          <h4 className="text-sm font-semibold mb-2 text-[#E0E5E9]/75">Tecnologias:</h4>
+          <h4 className="text-sm font-semibold mb-2 text-[#E6E6E6]/75">Tecnologias:</h4>
           <div className="flex flex-wrap gap-2 text-xs">
             {techs.map((tech, index) => (
               <span 

@@ -10,8 +10,8 @@ export default function ProjetosPage() {
   return (
     <div className="space-y-10 pb-20">
       <header className="space-y-4 text-center max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">Projetos</h1>
-        <p className="text-[#E0E5E9]/70 text-sm sm:text-base">
+        <h1 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Projetos</h1>
+        <p className="text-[#E6E6E6]/70 text-sm sm:text-base">
           Uma selecao dos meus trabalhos mais recentes, com foco em entregar valor real, melhorar processos e criar
           experiencias significativas.
         </p>

@@ -1,29 +1,99 @@
-import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
-import Hero from '@/components/Hero';
-import Card from '@/components/Card';
-import { projects } from '@/data/projects';
+import Link from "next/link";
+import {
+  FaArrowRight,
+  FaCertificate,
+  FaCompass,
+  FaEnvelopeOpenText,
+  FaLayerGroup,
+} from "react-icons/fa";
+import Hero from "@/components/Hero";
+import Card from "@/components/Card";
+import ScrollReveal from "@/components/ScrollReveal";
+import { projects } from "@/data/projects";
 
-const quickLinks = [
+const navigationHighlights = [
   {
-    title: 'Sobre mim',
-    description: 'Quem sou, minhas habilidades e experiencia profissional.',
-    href: '/sobre',
+    icon: FaCompass,
+    title: "Sobre mim",
+    description: "Um resumo completo da minha jornada e dos pilares tecnicos.",
+    bullets: [
+      "Formacao e idiomas",
+      "Habilidades e ferramentas",
+      "Experiencia e educação",
+    ],
+    href: "/sobre",
   },
   {
-    title: 'Projetos',
-    description: 'Veja os projetos que construi e os problemas que resolvi.',
-    href: '/projetos',
+    icon: FaLayerGroup,
+    title: "Projetos",
+    description: "Casos reais, stacks utilizadas e o impacto das entregas.",
+    bullets: [
+      "Detalhes de cada projeto",
+      "Tecnologias aplicadas",
+      "Links para demos e repos",
+    ],
+    href: "/projetos",
   },
   {
-    title: 'Certificados',
-    description: 'Cursos e certificacoes que sustentam minha formacao continua.',
-    href: '/certificados',
+    icon: FaCertificate,
+    title: "Certificados",
+    description:
+      "Trilhas de estudo que sustentam meu desenvolvimento continuo.",
+    bullets: [
+      "Cursos e certificacoes",
+      "Instituicoes e datas",
+      "Aprendizado em progresso",
+    ],
+    href: "/certificados",
   },
   {
-    title: 'Contato',
-    description: 'Fale comigo diretamente para oportunidades e colaboracoes.',
-    href: '/contato',
+    icon: FaEnvelopeOpenText,
+    title: "Contato",
+    description:
+      "Um canal direto para conversar sobre oportunidades e parcerias.",
+    bullets: ["WhatsApp e e-mail", "Resposta objetiva", "Convites e projetos"],
+    href: "/contato",
+  },
+];
+
+const deliveryPillars = [
+  {
+    title: "Interfaces atuais e responsivas",
+    description:
+      "Layouts responsivos com hierarquia visual clara e navegacao intuitiva.",
+    tags: ["UI/UX", "Responsivo", "Performance"],
+  },
+  {
+    title: "Automações que liberam tempo",
+    description:
+      "Scripts e integracoes para reduzir tarefas manuais, melhorar resultados e manter o time focado.",
+    tags: ["Automacao", "APIs", "Workflow"],
+  },
+  {
+    title: "Documentação e colaboração",
+    description:
+      "Entrega organizada, alinhamento continuo e base clara para evolucoes.",
+    tags: ["README", "Git", "Handoff"],
+  },
+];
+
+const workflowSteps = [
+  {
+    step: "01",
+    title: "Imersão no contexto",
+    description:
+      "Entendo objetivos, publico, restricoes e oportunidades antes de propor uma solução.",
+  },
+  {
+    step: "02",
+    title: "Aruquitetura de Projeto",
+    description:
+      "Estruturo o escopo, fluxo, prototipo telas e valido a hierarquia.",
+  },
+  {
+    step: "03",
+    title: "Entrega e iteração",
+    description: "Construo, testo e ajusto com base em feedback real.",
   },
 ];
 
@@ -31,57 +101,182 @@ const highlightProjects = projects.slice(0, 2);
 
 export default function HomePage() {
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-24 pb-24">
       <Hero />
 
-      <section className="space-y-6">
-        <h2 className="text-3xl sm:text-4xl font-semibold text-center text-[#E0E5E9]">Escolha por onde comecar</h2>
-        <p className="text-lg text-[#E0E5E9]/70 text-center max-w-3xl mx-auto">
-          Navegue pelas paginas para conhecer minha trajetoria, resultados que entreguei e como podemos construir algo
-          juntos.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {quickLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#0A62D0]/60 hover:bg-[#0A62D0]/10"
-            >
-              <h3 className="text-xl font-semibold text-[#E0E5E9] mb-2 group-hover:text-[#F3D849] transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-[#E0E5E9]/70 text-sm leading-relaxed">{item.description}</p>
-              <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#0A62D0] group-hover:text-[#F3D849]">
-                Acessar pagina{' '}
-                <FaArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={12} />
-              </span>
-            </Link>
+      <section className="space-y-8">
+        <ScrollReveal className="text-center space-y-4">
+          <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
+            Tópicos
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+            Breve apresentação dos tópicos
+          </h2>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {navigationHighlights.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <ScrollReveal key={item.href} delay={index * 120}>
+                <Link
+                  href={item.href}
+                  className="group relative flex h-full flex-col gap-5 rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/5 neon-border"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/5 text-[#FF7A7A]/90">
+                      <Icon size={20} />
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#E6E6E6]">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-[#E6E6E6]/70 mt-1">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 text-xs text-[#E6E6E6]/65">
+                    {item.bullets.map((bullet) => (
+                      <span
+                        key={bullet}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1"
+                      >
+                        {bullet}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="mt-auto inline-flex items-center text-xs font-semibold tracking-[0.25em] text-[#FF7A7A]/90">
+                    Acessar pagina
+                    <FaArrowRight
+                      className="ml-2 transition-transform group-hover:translate-x-1"
+                      size={12}
+                    />
+                  </span>
+                </Link>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <ScrollReveal className="space-y-4">
+          <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
+            Entregas
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+            O que voce encontra quando navega por aqui
+          </h2>
+          <p className="text-[#E6E6E6]/70">
+            Trabalho com foco em clareza, impacto e organizacao. Cada sessao
+            reforca um pedaco da minha forma de construir.
+          </p>
+        </ScrollReveal>
+
+        <div className="grid gap-5">
+          {deliveryPillars.map((pillar, index) => (
+            <ScrollReveal key={pillar.title} delay={index * 140}>
+              <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/5">
+                <h3 className="text-xl font-semibold text-[#E6E6E6]">
+                  {pillar.title}
+                </h3>
+                <p className="text-sm text-[#E6E6E6]/70 mt-2">
+                  {pillar.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium tracking-[0.15em] text-[#E6E6E6]/60">
+                  {pillar.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-8">
+        <ScrollReveal className="text-center space-y-3">
+          <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
+            Processo
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+            Como estruturo cada entrega
+          </h2>
+        </ScrollReveal>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {workflowSteps.map((step, index) => (
+            <ScrollReveal key={step.step} delay={index * 140}>
+              <div className="h-full rounded-3xl border border-white/10 bg-white/[0.035] p-6">
+                <span className="text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
+                  {step.step}
+                </span>
+                <h3 className="mt-3 text-xl font-semibold text-[#E6E6E6]">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm text-[#E6E6E6]/70">
+                  {step.description}
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <ScrollReveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#E0E5E9]">Projetos em destaque</h2>
-            <p className="text-[#E0E5E9]/70 mt-2 max-w-2xl">
-              Uma amostra do que tenho construindo recentemente. Veja todos os detalhes na pagina de projetos.
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+              Projetos em destaque
+            </h2>
+            <p className="text-[#E6E6E6]/70 mt-2 max-w-2xl">
+              Uma amostra do que venho construindo recentemente. Veja todos os
+              detalhes na pagina de projetos.
             </p>
           </div>
           <Link
             href="/projetos"
-            className="inline-flex items-center text-sm font-semibold text-[#0A62D0] hover:text-[#F3D849] transition-colors"
+            className="inline-flex items-center text-sm font-semibold text-[#D14949] hover:text-[#FF7A7A] transition-colors"
           >
             Ver todos
             <FaArrowRight className="ml-2" size={12} />
           </Link>
-        </div>
+        </ScrollReveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {highlightProjects.map((project) => (
-            <Card key={project.title} {...project} />
+          {highlightProjects.map((project, index) => (
+            <ScrollReveal key={project.title} delay={index * 140}>
+              <Card {...project} highlight />
+            </ScrollReveal>
           ))}
         </div>
       </section>
+
+      <ScrollReveal>
+        <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-10 text-center neon-border">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-[#E6E6E6]">
+            Vamos construir algo juntos?
+          </h3>
+          <p className="text-sm sm:text-base text-[#E6E6E6]/70 mt-3 max-w-2xl mx-auto">
+            Se voce curtiu a proposta da landing page, a conversa continua por
+            aqui. Posso apoiar novas ideias ou integrar em projetos em
+            andamento.
+          </p>
+          <Link
+            href="/contato"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#D14949]/60 bg-[#D14949] px-7 py-3 text-sm font-semibold text-[#E6E6E6] transition-transform duration-300 hover:-translate-y-1 hover:bg-[#D14949]/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D14949]"
+          >
+            Falar comigo
+            <FaArrowRight size={14} />
+          </Link>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }
