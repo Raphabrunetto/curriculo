@@ -44,7 +44,7 @@ const Experience = () => {
       company: 'Vidya Technology',
       period: 'Abril 2025 - Atual',
       description:
-        'Cuido de operações, crio automações para o Monday para reduzir tarefas manuais e aumentar a assertividade no controle de tempo e tarefas. Também refatorei scripts em Python com OpenCV para acelerar análises de imagens.',
+        'Faço operações, fiz um script Python com OpenCV para acelerar análises e edição de imagens, resultando em uma melhora de 20% no Resultado de nossa IA. Também criei automações para o Monday para reduzir tarefas manuais e aumentar a assertividade no controle de tempo e tarefas.',
       logo: '/logos/empresa2.png',
     },
   ];
@@ -66,7 +66,7 @@ const Experience = () => {
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           experiências
         </span>
-        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Onde desenvolvi meu olhar analítico</h2>
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Onde desenvolvi projetos reais</h2>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {experiences.map((exp) => (

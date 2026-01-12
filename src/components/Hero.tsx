@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
@@ -30,18 +30,87 @@ const ctas = [
 
 const Hero = () => {
   const [isRevealed, setIsRevealed] = useState(false);
+  const isRevealedRef = useRef(false);
 
   useEffect(() => {
-    const revealAfter = 40;
+    isRevealedRef.current = isRevealed;
+  }, [isRevealed]);
 
-    const handleScroll = () => {
-      setIsRevealed(window.scrollY > revealAfter);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsRevealed(true);
+      return;
+    }
+
+    let touchStartY: number | null = null;
+
+    const atTop = () => window.scrollY <= 0;
+
+    const reveal = () => {
+      if (isRevealedRef.current) return;
+      setIsRevealed(true);
     };
 
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const hide = () => {
+      if (!isRevealedRef.current) return;
+      setIsRevealed(false);
+    };
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onWheel = (event: WheelEvent) => {
+      if (!atTop()) return;
+      if (!isRevealedRef.current && event.deltaY > 0) {
+        event.preventDefault();
+        reveal();
+      }
+      if (isRevealedRef.current && event.deltaY < 0) {
+        event.preventDefault();
+        hide();
+      }
+    };
+
+    const onTouchStart = (event: TouchEvent) => {
+      touchStartY = event.touches[0]?.clientY ?? null;
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (!atTop() || touchStartY === null) return;
+      const currentY = event.touches[0]?.clientY ?? touchStartY;
+      const delta = touchStartY - currentY;
+      if (!isRevealedRef.current && delta > 0) {
+        event.preventDefault();
+        reveal();
+      }
+      if (isRevealedRef.current && delta < 0) {
+        event.preventDefault();
+        hide();
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!atTop()) return;
+      const downKeys = ['ArrowDown', 'PageDown', 'End', ' '];
+      const upKeys = ['ArrowUp', 'PageUp', 'Home'];
+      if (!isRevealedRef.current && downKeys.includes(event.key)) {
+        event.preventDefault();
+        reveal();
+      }
+      if (isRevealedRef.current && upKeys.includes(event.key)) {
+        event.preventDefault();
+        hide();
+      }
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, []);
 
   const slideBaseClasses =

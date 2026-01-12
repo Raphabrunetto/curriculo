@@ -14,9 +14,9 @@ export const projects: Project[] = [
     link: 'https://raphabrunetto.github.io/projeto-one-piece',
   },
   {
-    title: 'Refatoração de Script CV2',
+    title: 'AutoEdição de Imagens com Script CV2',
     description:
-      'Refatoração de script em Python com OpenCV para padronizar a análise e aplicar edição automática nas imagens. Também refatorei o código e implementei a execução no Windows por meio do Docker.',
+      'Script em Python com OpenCV para padronizar a análise e aplicar edição automática nas imagens. Apresentou cerca de 20% de melhora no reconhecimento da IA da empresa. Também refatorei o código e implementei a execução no Windows por meio do Docker.',
     techs: ['Python', 'Docker', 'BASH'],
     link: 'https://github.com/Raphabrunetto/AutoEditDeImg',
   },

@@ -9,6 +9,7 @@ import {
 import Hero from "@/components/Hero";
 import Card from "@/components/Card";
 import ScrollReveal from "@/components/ScrollReveal";
+import ResponsivePreviewCard from "@/components/ResponsivePreviewCard";
 import { projects } from "@/data/projects";
 
 const navigationHighlights = [
@@ -16,53 +17,33 @@ const navigationHighlights = [
     icon: FaCompass,
     title: "Sobre mim",
     description: "Um resumo completo da minha jornada e dos pilares técnicos.",
-    bullets: [
-      "Formação e idiomas",
-      "Habilidades e ferramentas",
-      "Experiência e educação",
-    ],
+    bullets: ["Formação e idiomas", "Habilidades e ferramentas", "Experiência e educação"],
     href: "/sobre",
   },
   {
     icon: FaLayerGroup,
     title: "Projetos",
     description: "Casos reais, stacks utilizadas e o impacto das entregas.",
-    bullets: [
-      "Detalhes de cada projeto",
-      "Tecnologias aplicadas",
-      "Links para demos e repos",
-    ],
+    bullets: ["Detalhes de cada projeto", "Tecnologias aplicadas", "Links para demos e repos"],
     href: "/projetos",
   },
   {
     icon: FaCertificate,
     title: "Certificados",
-    description:
-      "Trilhas de estudo que sustentam meu desenvolvimento contínuo.",
-    bullets: [
-      "Cursos e certificações",
-      "Instituições e datas",
-      "Aprendizado em progresso",
-    ],
+    description: "Trilhas de estudo que sustentam meu desenvolvimento contínuo.",
+    bullets: ["Cursos e certificações", "Instituições e datas", "Aprendizado em progresso"],
     href: "/certificados",
   },
   {
     icon: FaEnvelopeOpenText,
     title: "Contato",
-    description:
-      "Um canal direto para conversar sobre oportunidades e parcerias.",
+    description: "Um canal direto para conversar sobre oportunidades e parcerias.",
     bullets: ["WhatsApp e e-mail", "Resposta objetiva", "Convites e projetos"],
     href: "/contato",
   },
 ];
 
 const deliveryPillars = [
-  {
-    title: "Interfaces atuais e responsivas",
-    description:
-      "Layouts responsivos com hierarquia visual clara e navegação intuitiva.",
-    tags: ["UI/UX", "Responsivo", "Performance"],
-  },
   {
     title: "Automações que liberam tempo",
     description:
@@ -71,8 +52,7 @@ const deliveryPillars = [
   },
   {
     title: "Documentação e colaboração",
-    description:
-      "Entrega organizada, alinhamento contínuo e base clara para evoluções.",
+    description: "Entrega organizada, alinhamento contínuo e base clara para evoluções.",
     tags: ["README", "Git", "Handoff"],
   },
 ];
@@ -81,14 +61,12 @@ const workflowSteps = [
   {
     step: "01",
     title: "Imersão no contexto",
-    description:
-      "Entendo objetivos, público, restrições e oportunidades antes de propor uma solução.",
+    description: "Entendo objetivos, público, restrições e oportunidades antes de propor uma solução.",
   },
   {
     step: "02",
     title: "Arquitetura de Projeto",
-    description:
-      "Estruturo o escopo, fluxo, protótipos de telas e valido a hierarquia.",
+    description: "Estruturo o escopo, fluxo, protótipos de telas e valido a hierarquia.",
   },
   {
     step: "03",
@@ -128,12 +106,8 @@ export default function HomePage() {
                       <Icon size={20} />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold text-[#E6E6E6]">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-[#E6E6E6]/70 mt-1">
-                        {item.description}
-                      </p>
+                      <h3 className="text-xl font-semibold text-[#E6E6E6]">{item.title}</h3>
+                      <p className="text-sm text-[#E6E6E6]/70 mt-1">{item.description}</p>
                     </div>
                   </div>
 
@@ -171,21 +145,21 @@ export default function HomePage() {
             O que você encontra quando navega por aqui
           </h2>
           <p className="text-[#E6E6E6]/70">
-            Trabalho com foco em clareza, impacto e organização. Cada seção
-            reforça um pedaço da minha forma de construir um software.
+            Trabalho com foco em clareza, impacto e organização. Cada seção reforça um pedaço da minha forma de construir
+            um software.
           </p>
         </ScrollReveal>
 
         <div className="grid gap-5">
+          <ScrollReveal>
+            <ResponsivePreviewCard />
+          </ScrollReveal>
+
           {deliveryPillars.map((pillar, index) => (
-            <ScrollReveal key={pillar.title} delay={index * 140}>
+            <ScrollReveal key={pillar.title} delay={(index + 1) * 140}>
               <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/5">
-                <h3 className="text-xl font-semibold text-[#E6E6E6]">
-                  {pillar.title}
-                </h3>
-                <p className="text-sm text-[#E6E6E6]/70 mt-2">
-                  {pillar.description}
-                </p>
+                <h3 className="text-xl font-semibold text-[#E6E6E6]">{pillar.title}</h3>
+                <p className="text-sm text-[#E6E6E6]/70 mt-2">{pillar.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium tracking-[0.15em] text-[#E6E6E6]/60">
                   {pillar.tags.map((tag) => (
                     <span
@@ -218,12 +192,8 @@ export default function HomePage() {
                 <span className="text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
                   {step.step}
                 </span>
-                <h3 className="mt-3 text-xl font-semibold text-[#E6E6E6]">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm text-[#E6E6E6]/70">
-                  {step.description}
-                </p>
+                <h3 className="mt-3 text-xl font-semibold text-[#E6E6E6]">{step.title}</h3>
+                <p className="mt-2 text-sm text-[#E6E6E6]/70">{step.description}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -237,8 +207,7 @@ export default function HomePage() {
               Projetos em destaque
             </h2>
             <p className="text-[#E6E6E6]/70 mt-2 max-w-2xl">
-              Uma amostra do que venho construindo recentemente. Veja todos os
-              detalhes na página de projetos.
+              Uma amostra do que venho construindo recentemente. Veja todos os detalhes na página de projetos.
             </p>
           </div>
           <Link
@@ -264,9 +233,8 @@ export default function HomePage() {
             Vamos construir algo juntos?
           </h3>
           <p className="text-sm sm:text-base text-[#E6E6E6]/70 mt-3 max-w-2xl mx-auto">
-            Se você curtiu a proposta da landing page, a conversa continua por
-            aqui. Posso apoiar novas ideias ou me integrar a projetos em
-            andamento.
+            Se você curtiu a proposta da landing page, a conversa continua por aqui. Posso apoiar novas ideias ou me
+            integrar a projetos em andamento.
           </p>
           <Link
             href="/contato"
