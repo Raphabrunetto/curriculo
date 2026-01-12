@@ -1,8 +1,8 @@
-# 🚀 Curriculo Online & Portfólio - Raphael Brunetto
+﻿# Currículo Online & Portfólio - Raphael Brunetto
 
-Este projeto é o meu portfólio e currículo online. Desenvolvido para demonstrar habilidades em desenvolvimento Front-end moderno, UX/UI e interatividade.
+Este projeto é o meu portfólio e currículo online. Desenvolvido para demonstrar habilidades em desenvolvimento front-end moderno, UX/UI e interatividade.
 
-## 🌟 Tecnologias em Destaque
+## Tecnologias em Destaque
 
 | Categoria | Tecnologia | Objetivo no Projeto |
 | :--- | :--- | :--- |
@@ -15,7 +15,7 @@ Este projeto é o meu portfólio e currículo online. Desenvolvido para demonstr
 
 ---
 
-## ✨ Features do Projeto
+## Features do Projeto
 
 * **Design Coeso:** Layout *dark mode* unificado, com *branding* roxo/ciano.
 * **Seções Modulares:** Organização completa em seções de **Experiência**, **Habilidades**, **Certificados** e **Projetos** (usando cards reutilizáveis).
@@ -25,7 +25,7 @@ Este projeto é o meu portfólio e currículo online. Desenvolvido para demonstr
 
 ---
 
-## 🛠️ Como Rodar Localmente
+## Como Rodar Localmente
 
 Siga estas instruções para configurar e rodar o projeto em sua máquina:
 
@@ -35,16 +35,16 @@ Certifique-se de ter o [Node.js](https://nodejs.org/en/) e o [npm](https://www.n
 
 ### Passos
 
-1.  Clone o repositório:
+1. Clone o repositório:
     ```bash
-    git clone [https://github.com/Raphabrunetto/curriculo.git](https://github.com/Raphabrunetto/curriculo.git)
+    git clone https://github.com/Raphabrunetto/curriculo.git
     cd curriculo
     ```
-2.  Instale as dependências:
+2. Instale as dependências:
     ```bash
     npm install
     ```
-3.  Inicie o servidor de desenvolvimento:
+3. Inicie o servidor de desenvolvimento:
     ```bash
     npm run dev
     ```
@@ -53,16 +53,16 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador. O site rec
 
 ---
 
-## ☁️ Deploy
+## Deploy
 
 Este projeto é hospedado na **Vercel**, a plataforma recomendada pelos criadores do Next.js, garantindo o melhor desempenho e o *Continuous Deployment (CD)*.
 
-* **Deploy Atual:** [curriculo-rb.vercel.app]
+* **Deploy Atual:** [curriculo-rb.vercel.app](https://curriculo-rb.vercel.app)
 * **Deploy Automático:** Qualquer `git push` para a branch `main` dispara um *build* e atualização automática na Vercel.
 
 ---
 
-## 🧑‍💻 Autor
+## Autor
 
 | | Informações |
 | :--- | :--- |

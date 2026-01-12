@@ -1,4 +1,4 @@
-interface EducationItemProps {
+﻿interface EducationItemProps {
   degree: string;
   institution: string;
   year: string;
@@ -20,7 +20,7 @@ const Education = () => {
       year: '2021 - 2025',
     },
     {
-      degree: 'Logica de Programacao e Algoritmos com C',
+      degree: 'Lógica de Programação e Algoritmos com C',
       institution: 'Udemy',
       year: '2025',
     },
@@ -30,10 +30,10 @@ const Education = () => {
     <section className="max-w-5xl mx-auto space-y-10">
       <div className="text-center space-y-3">
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
-          formacao
+          formação
         </span>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
-          Estudos que sustentam minha visao de produto
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+          Estudos que sustentam minha visão de produto
         </h2>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

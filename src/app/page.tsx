@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import {
   FaArrowRight,
   FaCertificate,
@@ -15,11 +15,11 @@ const navigationHighlights = [
   {
     icon: FaCompass,
     title: "Sobre mim",
-    description: "Um resumo completo da minha jornada e dos pilares tecnicos.",
+    description: "Um resumo completo da minha jornada e dos pilares técnicos.",
     bullets: [
-      "Formacao e idiomas",
+      "Formação e idiomas",
       "Habilidades e ferramentas",
-      "Experiencia e educação",
+      "Experiência e educação",
     ],
     href: "/sobre",
   },
@@ -38,10 +38,10 @@ const navigationHighlights = [
     icon: FaCertificate,
     title: "Certificados",
     description:
-      "Trilhas de estudo que sustentam meu desenvolvimento continuo.",
+      "Trilhas de estudo que sustentam meu desenvolvimento contínuo.",
     bullets: [
-      "Cursos e certificacoes",
-      "Instituicoes e datas",
+      "Cursos e certificações",
+      "Instituições e datas",
       "Aprendizado em progresso",
     ],
     href: "/certificados",
@@ -60,19 +60,19 @@ const deliveryPillars = [
   {
     title: "Interfaces atuais e responsivas",
     description:
-      "Layouts responsivos com hierarquia visual clara e navegacao intuitiva.",
+      "Layouts responsivos com hierarquia visual clara e navegação intuitiva.",
     tags: ["UI/UX", "Responsivo", "Performance"],
   },
   {
     title: "Automações que liberam tempo",
     description:
-      "Scripts e integracoes para reduzir tarefas manuais, melhorar resultados e manter o time focado.",
-    tags: ["Automacao", "APIs", "Workflow"],
+      "Scripts e integrações para reduzir tarefas manuais, melhorar resultados e manter o time focado.",
+    tags: ["Automação", "APIs", "Workflow"],
   },
   {
     title: "Documentação e colaboração",
     description:
-      "Entrega organizada, alinhamento continuo e base clara para evolucoes.",
+      "Entrega organizada, alinhamento contínuo e base clara para evoluções.",
     tags: ["README", "Git", "Handoff"],
   },
 ];
@@ -82,13 +82,13 @@ const workflowSteps = [
     step: "01",
     title: "Imersão no contexto",
     description:
-      "Entendo objetivos, publico, restricoes e oportunidades antes de propor uma solução.",
+      "Entendo objetivos, público, restrições e oportunidades antes de propor uma solução.",
   },
   {
     step: "02",
-    title: "Aruquitetura de Projeto",
+    title: "Arquitetura de Projeto",
     description:
-      "Estruturo o escopo, fluxo, prototipo telas e valido a hierarquia.",
+      "Estruturo o escopo, fluxo, protótipos de telas e valido a hierarquia.",
   },
   {
     step: "03",
@@ -109,7 +109,7 @@ export default function HomePage() {
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Tópicos
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+          <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
             Breve apresentação dos tópicos
           </h2>
         </ScrollReveal>
@@ -149,7 +149,7 @@ export default function HomePage() {
                   </div>
 
                   <span className="mt-auto inline-flex items-center text-xs font-semibold tracking-[0.25em] text-[#FF7A7A]/90">
-                    Acessar pagina
+                    Acessar página
                     <FaArrowRight
                       className="ml-2 transition-transform group-hover:translate-x-1"
                       size={12}
@@ -167,12 +167,12 @@ export default function HomePage() {
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Entregas
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
-            O que voce encontra quando navega por aqui
+          <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+            O que você encontra quando navega por aqui
           </h2>
           <p className="text-[#E6E6E6]/70">
-            Trabalho com foco em clareza, impacto e organizacao. Cada sessao
-            reforca um pedaco da minha forma de construir.
+            Trabalho com foco em clareza, impacto e organização. Cada seção
+            reforça um pedaço da minha forma de construir um software.
           </p>
         </ScrollReveal>
 
@@ -207,7 +207,7 @@ export default function HomePage() {
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Processo
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+          <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
             Como estruturo cada entrega
           </h2>
         </ScrollReveal>
@@ -233,12 +233,12 @@ export default function HomePage() {
       <section className="space-y-6">
         <ScrollReveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+            <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
               Projetos em destaque
             </h2>
             <p className="text-[#E6E6E6]/70 mt-2 max-w-2xl">
               Uma amostra do que venho construindo recentemente. Veja todos os
-              detalhes na pagina de projetos.
+              detalhes na página de projetos.
             </p>
           </div>
           <Link
@@ -260,12 +260,12 @@ export default function HomePage() {
 
       <ScrollReveal>
         <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-10 text-center neon-border">
-          <h3 className="text-2xl sm:text-3xl font-semibold text-[#E6E6E6]">
+          <h3 className="hover-underline text-2xl sm:text-3xl font-semibold text-[#E6E6E6]">
             Vamos construir algo juntos?
           </h3>
           <p className="text-sm sm:text-base text-[#E6E6E6]/70 mt-3 max-w-2xl mx-auto">
-            Se voce curtiu a proposta da landing page, a conversa continua por
-            aqui. Posso apoiar novas ideias ou integrar em projetos em
+            Se você curtiu a proposta da landing page, a conversa continua por
+            aqui. Posso apoiar novas ideias ou me integrar a projetos em
             andamento.
           </p>
           <Link

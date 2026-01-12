@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
   --color-background: #0f0f0f;
@@ -79,6 +79,175 @@ body {
   box-shadow: 0 0 0 1px rgba(255, 122, 122, 0.6), 0 0 32px rgba(255, 122, 122, 0.35);
 }
 
+.accent-border {
+  border-color: rgba(209, 73, 73, 0.55);
+}
+
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after,
+.hover-underline::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  background: linear-gradient(90deg, #ff7a7a, #d14949);
+  transform: scaleX(0);
+  transition: transform 0.4s ease-out;
+}
+
+.hover-underline::after {
+  bottom: -6px;
+  transform-origin: right;
+}
+
+.hover-underline::before {
+  top: -6px;
+  transform-origin: left;
+}
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
+
+.menu-item__label {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.menu-item__arrow {
+  color: #ff7a7a;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.menu-icon-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: width 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.menu-icon-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, var(--pill-i, #ff7a7a), var(--pill-j, #d14949));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.menu-icon-pill__icon {
+  position: relative;
+  z-index: 1;
+  color: #d14949;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.menu-icon-pill__label {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.menu-item:hover .menu-icon-pill,
+.menu-item:focus-visible .menu-icon-pill {
+  width: 150px;
+  border-color: transparent;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.menu-item:hover .menu-icon-pill::before,
+.menu-item:focus-visible .menu-icon-pill::before {
+  opacity: 1;
+}
+
+.menu-item:hover .menu-icon-pill__icon,
+.menu-item:focus-visible .menu-icon-pill__icon {
+  color: #ffffff;
+  transform: scale(0);
+}
+
+.menu-item:hover .menu-icon-pill__label,
+.menu-item:focus-visible .menu-icon-pill__label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menu-item:hover .menu-item__label,
+.menu-item:focus-visible .menu-item__label,
+.menu-item--active .menu-item__label {
+  opacity: 0;
+  transform: translateX(-4px);
+}
+
+.menu-item:hover .menu-item__arrow,
+.menu-item:focus-visible .menu-item__arrow {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.social-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 100%;
+  background: var(--social-accent, #d14949);
+  transition: top 0.5s ease;
+  z-index: 1;
+}
+
+.social-link__icon {
+  position: relative;
+  z-index: 2;
+  color: #d14949;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+}
+
+.social-link:hover::before {
+  top: 0;
+}
+
+.social-link:hover .social-link__icon {
+  color: #ffffff;
+  transform: rotateY(360deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .animate-fade-in-soft {
@@ -90,4 +259,14 @@ body {
   [data-animate="spin-slow"] {
     animation: none;
   }
+
+  .menu-item__label,
+  .menu-item__arrow,
+  .menu-icon-pill,
+  .menu-icon-pill::before,
+  .menu-icon-pill__icon,
+  .menu-icon-pill__label {
+    transition: none;
+  }
+
 }

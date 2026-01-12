@@ -1,4 +1,4 @@
-interface VolunteerItemProps {
+﻿interface VolunteerItemProps {
   role: string;
   organization: string;
   period: string;
@@ -18,17 +18,17 @@ const Volunteer = () => {
   const volunteerWork: VolunteerItemProps[] = [
     {
       role: 'Palestrante em tecnologia e futuro',
-      organization: 'CEI Maria Amelia / UP',
+      organization: 'CEI Maria Amélia / UP',
       period: 'Julho 2024 - Dezembro 2024',
       description:
-        'Ministrei palestras sobre como a tecnologia pode impulsionar desenvolvimento pessoal e profissional, mostrando caminhos acessiveis para quem esta comecando.',
+        'Ministrei palestras sobre como a tecnologia pode impulsionar desenvolvimento pessoal e profissional, mostrando caminhos acessíveis para quem está começando.',
     },
     {
-      role: 'Campanha solidaria',
+      role: 'Campanha solidária',
       organization: 'Universidade Positivo',
       period: '2023',
       description:
-        'Ajudei a organizar arrecadacoes e entregas de itens essenciais para familias em situacao de vulnerabilidade, reforcando o impacto social da tecnologia.',
+        'Ajudei a organizar arrecadações e entregas de itens essenciais para famílias em situação de vulnerabilidade, reforçando o impacto social da tecnologia.',
     },
   ];
 
@@ -38,7 +38,7 @@ const Volunteer = () => {
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           voluntariado
         </span>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
           Projetos sociais que me conectam com pessoas
         </h2>
       </div>

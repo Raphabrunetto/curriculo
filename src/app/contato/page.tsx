@@ -1,4 +1,4 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+﻿import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata = {
@@ -22,7 +22,7 @@ const contactLinks = [
   {
     label: 'GitHub',
     href: 'https://github.com/Raphabrunetto',
-    description: 'Confira codigo aberto, experimentos e contribuicoes.',
+    description: 'Confira código aberto, experimentos e contribuições.',
     icon: FaGithub,
   },
 ];
@@ -31,23 +31,23 @@ export default function ContatoPage() {
   return (
     <div className="space-y-12 pb-20">
       <header className="space-y-4 text-center max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Vamos trabalhar juntos?</h1>
+        <h1 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Vamos trabalhar juntos?</h1>
         <p className="text-[#E6E6E6]/70 text-sm sm:text-base">
           Estou aberto a conversar sobre vagas, projetos freelas ou qualquer iniciativa em que eu possa ajudar com
-          tecnologia e experiencia em produto.
+          tecnologia e experiência em produto.
         </p>
       </header>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center shadow-[0_20px_45px_rgba(209,73,73,0.35)]">
-        <h2 className="text-2xl font-semibold mb-4 text-[#E6E6E6]">Resposta rapida pelo WhatsApp</h2>
+        <h2 className="hover-underline text-2xl font-semibold mb-4 text-[#E6E6E6]">Resposta rápida pelo WhatsApp</h2>
         <p className="text-[#E6E6E6]/70 text-sm sm:text-base mb-8 max-w-2xl mx-auto">
-          Use o botao abaixo para me chamar no WhatsApp com uma mensagem pre-preenchida. Responderei assim que possivel.
+          Use o botão abaixo para me chamar no WhatsApp com uma mensagem pré-preenchida. Responderei assim que possível.
         </p>
         <WhatsAppButton />
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-xl font-semibold text-[#E6E6E6] text-center">Outros canais</h2>
+        <h2 className="hover-underline text-xl font-semibold text-[#E6E6E6] text-center">Outros canais</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {contactLinks.map((item) => {
             const Icon = item.icon;

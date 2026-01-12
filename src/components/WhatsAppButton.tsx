@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WHATSAPP_NUMBER = '5541997532136';
-const PRE_FILLED_MESSAGE = 'Ola, Raphael! Vi seu portfolio e gostaria de falar sobre uma oportunidade.';
+const PRE_FILLED_MESSAGE = 'Olá, Raphael! Vi seu portfólio e gostaria de falar sobre uma oportunidade.';
 
 const encodedMessage = encodeURIComponent(PRE_FILLED_MESSAGE);
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;

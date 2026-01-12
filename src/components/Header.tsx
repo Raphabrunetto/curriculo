@@ -1,7 +1,8 @@
-// src/components/Header.tsx
+﻿// src/components/Header.tsx
 
 "use client";
 
+import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -18,12 +19,12 @@ import {
 } from 'react-icons/fi';
 
 const navItems = [
-  { href: '/', label: 'Inicio', icon: FiHome },
-  { href: '/sobre', label: 'Sobre', icon: FiUser },
-  { href: '/projetos', label: 'Projetos', icon: FiLayers },
-  { href: '/certificados', label: 'Certificados', icon: FiAward },
-  { href: '/voluntario', label: 'Voluntario', icon: FiHeart },
-  { href: '/contato', label: 'Contato', icon: FiMail },
+  { href: '/', label: 'Início', icon: FiHome, accentStart: '#FF7A7A', accentEnd: '#D14949' },
+  { href: '/sobre', label: 'Sobre', icon: FiUser, accentStart: '#FF9A7A', accentEnd: '#FF6A5A' },
+  { href: '/projetos', label: 'Projetos', icon: FiLayers, accentStart: '#FF9966', accentEnd: '#FF5E62' },
+  { href: '/certificados', label: 'Certificados', icon: FiAward, accentStart: '#F857A6', accentEnd: '#FF5858' },
+  { href: '/voluntario', label: 'Voluntário', icon: FiHeart, accentStart: '#FFB347', accentEnd: '#FF7A7A' },
+  { href: '/contato', label: 'Contato', icon: FiMail, accentStart: '#FF5F6D', accentEnd: '#FFC371' },
 ];
 
 const Header = () => {
@@ -41,56 +42,34 @@ const Header = () => {
     return pathname.startsWith(href);
   };
 
-  const linkBaseClasses =
-    'inline-flex items-center gap-3 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200';
-  const desktopLinkClasses =
-    'text-[#E6E6E6] hover:text-[#FF7A7A] hover:bg-white/5';
-  const activeClasses =
-    'text-[#141414] bg-[#FF7A7A] ring-1 ring-[#FF7A7A]/60 shadow-[0_0_14px_-2px_rgba(255,122,122,0.55)]';
+  const menuItemBaseClasses =
+    'menu-item flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors';
+  const menuItemDefaultClasses =
+    'text-[#E6E6E6] hover:bg-white/5';
+  const menuItemActiveClasses =
+    'bg-white/10 text-[#FFFFFF]';
 
   return (
-    <header className="py-5 w-full sticky top-0 z-50 bg-transparent">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-8">
-        <div className="flex items-center justify-end sm:justify-center gap-6">
-          <button
-            type="button"
-            className="sm:hidden inline-flex items-center justify-center p-2 rounded-md text-[#E6E6E6] hover:text-[#FF7A7A] focus:outline-none focus:ring-2 focus:ring-[#D14949]"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Abrir menu de navegacao"
-          >
-            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-          <ul className="hidden sm:flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                {(() => {
-                  const Icon = item.icon;
-                  const isCurrent = isActive(item.href);
-                  return (
-                    <Link
-                      href={item.href}
-                      className={`${linkBaseClasses} ${
-                        isCurrent ? activeClasses : desktopLinkClasses
-                      }`}
-                    >
-                      <span
-                        className={`grid h-8 w-8 place-items-center rounded-full ${
-                          isCurrent ? 'bg-[#141414]/10 text-[#141414]' : 'bg-[#D14949]/10 text-[#D14949]'
-                        }`}
-                      >
-                        <Icon size={16} />
-                      </span>
-                      {item.label}
-                    </Link>
-                  );
-                })()}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <header className="fixed right-4 top-4 z-50">
+      <nav className="relative">
+        <button
+          type="button"
+          className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 bg-[#141414]/90 px-4 text-sm font-semibold text-[#E6E6E6] shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur transition-colors hover:text-[#FF7A7A] focus:outline-none focus:ring-2 focus:ring-[#D14949]"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+          aria-expanded={menuOpen}
+          aria-controls="header-menu"
+        >
+          {menuOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+          <span className="hidden sm:inline">Menu</span>
+        </button>
+
         {menuOpen && (
-          <div className="sm:hidden mt-4 border-t border-white/10 pt-4">
-            <ul className="flex flex-col space-y-3">
+          <div
+            id="header-menu"
+            className="absolute right-0 mt-3 w-72 rounded-2xl border border-white/10 bg-[#141414]/95 p-2 shadow-[0_18px_40px_rgba(0,0,0,0.45)] backdrop-blur"
+          >
+            <ul className="flex flex-col gap-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isCurrent = isActive(item.href);
@@ -98,23 +77,30 @@ const Header = () => {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={`${linkBaseClasses} ${
-                        isCurrent
-                          ? `${activeClasses} justify-between`
-                          : `${desktopLinkClasses} justify-between bg-white/5`
+                      className={`${menuItemBaseClasses} ${
+                        isCurrent ? menuItemActiveClasses : menuItemDefaultClasses
                       }`}
                     >
                       <span className="flex items-center gap-3">
                         <span
-                          className={`grid h-9 w-9 place-items-center rounded-full ${
-                            isCurrent ? 'bg-[#141414]/10 text-[#141414]' : 'bg-[#D14949]/15 text-[#D14949]'
-                          }`}
+                          className="menu-icon-pill"
+                          style={
+                            {
+                              '--pill-i': item.accentStart,
+                              '--pill-j': item.accentEnd,
+                            } as CSSProperties
+                          }
                         >
-                          <Icon size={18} />
+                          <span className="menu-icon-pill__icon">
+                            <Icon size={16} />
+                          </span>
+                          <span className="menu-icon-pill__label" aria-hidden="true">
+                            {item.label}
+                          </span>
                         </span>
-                      {item.label}
+                        <span className="menu-item__label">{item.label}</span>
                       </span>
-                      <FiArrowUpRight className={isCurrent ? 'text-[#141414]' : 'text-[#FF7A7A]'} />
+                      <FiArrowUpRight className="menu-item__arrow" />
                     </Link>
                   </li>
                 );

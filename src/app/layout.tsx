@@ -1,4 +1,4 @@
-import { Poppins } from 'next/font/google';
+﻿import { Poppins } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css'; 
@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Meu Curriculo :D',
-  description: 'Curriculo de um Estudante de Engenharia de Software',
+  title: 'Meu Currículo :D',
+  description: 'Currículo de um estudante de Engenharia de Software',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

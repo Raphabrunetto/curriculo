@@ -1,5 +1,6 @@
-"use client";
+﻿"use client";
 
+import type { CSSProperties } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const socialLinks = [
@@ -7,16 +8,19 @@ const socialLinks = [
     icon: FaGithub,
     href: 'https://github.com/Raphabrunetto',
     label: 'GitHub',
+    accent: '#24292e',
   },
   {
     icon: FaLinkedin,
     href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
     label: 'LinkedIn',
+    accent: '#0077b5',
   },
   {
     icon: FaEnvelope,
     href: 'mailto:raphabrunetto@gmail.com',
     label: 'E-mail',
+    accent: '#D14949',
   },
 ];
 
@@ -34,16 +38,21 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.label}
-                className="grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/5 text-[#E6E6E6] transition-transform transition-colors hover:-translate-y-1 hover:border-[#D14949] hover:bg-[#D14949]/20 hover:text-[#D14949] animate-fade-in-up"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                className="social-link animate-fade-in-up"
+                style={
+                  {
+                    '--social-accent': item.accent,
+                    animationDelay: `${0.2 + index * 0.1}s`,
+                  } as CSSProperties
+                }
               >
-                <Icon size={20} />
+                <Icon size={20} className="social-link__icon" />
               </a>
             );
           })}
         </div>
         <p className="text-xs uppercase tracking-[0.35em] text-[#FF7A7A]/70">
-          Construindo experiencias que deixam a tecnologia mais humana
+          Construindo experiências que deixam a tecnologia mais humana
         </p>
         <p className="text-sm text-[#E6E6E6]/50">
           &copy; {new Date().getFullYear()} Raphael Brunetto. Todos os direitos reservados.

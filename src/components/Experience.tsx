@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 
 interface ExperienceItemProps {
   role: string;
@@ -32,19 +32,19 @@ const ExperienceItem = ({ role, company, period, description, logo }: Experience
 const Experience = () => {
   const experiences: ExperienceItemProps[] = [
     {
-      role: 'Estagiario em Suporte de TI',
+      role: 'Estagiário em Suporte de TI',
       company: 'COHAB Curitiba',
-      period: 'Outubro 2024 - Marco 2025',
+      period: 'Outubro 2024 - Março 2025',
       description:
-        'Atuei dando suporte em hardware, software, redes e help desk. Foi ali que percebi como traduzir tecnologia em solucoes praticas ajuda quem esta na linha de frente.',
+        'Atuei dando suporte em hardware, software, redes e help desk. Foi ali que percebi como traduzir tecnologia em soluções práticas ajuda quem está na linha de frente.',
       logo: '/logos/empresa1.png',
     },
     {
-      role: 'Tecnico de Operacoes',
+      role: 'Técnico de Operações',
       company: 'Vidya Technology',
       period: 'Abril 2025 - Atual',
       description:
-        'Cuido de operacoes, crio automacoes para o Monday para reduzir tarefas manuais e aumentar a acertividade no controle de tempo e tasks. Tambem refatorei scripts em Python com OpenCV para acelerar analises de imagens.',
+        'Cuido de operações, crio automações para o Monday para reduzir tarefas manuais e aumentar a assertividade no controle de tempo e tarefas. Também refatorei scripts em Python com OpenCV para acelerar análises de imagens.',
       logo: '/logos/empresa2.png',
     },
   ];
@@ -52,9 +52,9 @@ const Experience = () => {
   if (experiences.length === 0) {
     return (
       <section className="max-w-4xl mx-auto space-y-4 text-center">
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Experiencia profissional</h2>
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Experiência profissional</h2>
         <p className="text-[#E6E6E6]/60">
-          Esta secao sera preenchida em breve. Enquanto isso, confira os projetos que venho construindo.
+          Esta seção será preenchida em breve. Enquanto isso, confira os projetos que venho construindo.
         </p>
       </section>
     );
@@ -64,9 +64,9 @@ const Experience = () => {
     <section className="max-w-5xl mx-auto space-y-10">
       <div className="text-center space-y-3">
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
-          experiencias
+          experiências
         </span>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Onde desenvolvi meu olhar analitico</h2>
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Onde desenvolvi meu olhar analítico</h2>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {experiences.map((exp) => (

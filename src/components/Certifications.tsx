@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -42,7 +42,7 @@ const CertificateItem = ({ title, issuer, date, credentialLink, logoPath }: Cert
 const Certifications = () => {
   const certificates: CertificateItemProps[] = [
     {
-      title: 'Logica de Programacao e Algoritmos com C',
+      title: 'Lógica de Programação e Algoritmos com C',
       issuer: 'Udemy',
       date: 'Agosto 2025',
       credentialLink: 'https://www.udemy.com/certificate/UC-b5de53d8-344c-4e29-a476-d1ce3136d175',
@@ -63,7 +63,7 @@ const Certifications = () => {
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           certificados
         </span>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
           Aprendizados que atualizam minha caixa de ferramentas
         </h2>
       </div>

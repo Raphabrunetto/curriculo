@@ -31,7 +31,7 @@ const Skills = () => {
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           habilidades
         </span>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
+        <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
           Toolkit que levo para resolver desafios
         </h2>
       </div>
