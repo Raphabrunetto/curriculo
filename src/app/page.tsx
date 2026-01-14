@@ -83,7 +83,7 @@ export default function HomePage() {
       <Hero />
 
       <section className="space-y-8">
-        <ScrollReveal className="text-center space-y-4">
+        <ScrollReveal className="text-center space-y-4 flex flex-col items-center">
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Tópicos
           </span>
@@ -137,7 +137,7 @@ export default function HomePage() {
       </section>
 
       <section className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-        <ScrollReveal className="space-y-4">
+        <ScrollReveal className="space-y-4 flex flex-col items-start">
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Entregas
           </span>
@@ -145,8 +145,8 @@ export default function HomePage() {
             O que você encontra quando navega por aqui
           </h2>
           <p className="text-[#E6E6E6]/70">
-            Trabalho com foco em clareza, impacto e organização. Cada seção reforça um pedaço da minha forma de construir
-            um software.
+            Este card simula breakpoints e comportamento responsivo em tempo real, além de expor microinterações e estados de UI.
+            Teste agora: ajuste a largura e vire o card para validar o fluxo em cenários diferentes.
           </p>
         </ScrollReveal>
 
@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-8">
-        <ScrollReveal className="text-center space-y-3">
+        <ScrollReveal className="text-center space-y-3 flex flex-col items-center">
           <span className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-[#FF7A7A]/90">
             Processo
           </span>

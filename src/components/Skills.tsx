@@ -27,7 +27,7 @@ const skills = [
 const Skills = () => {
   return (
     <section className="max-w-5xl mx-auto space-y-10">
-      <div className="text-center space-y-3">
+      <div className="text-center space-y-3 flex flex-col items-center">
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           habilidades
         </span>

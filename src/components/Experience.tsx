@@ -1,10 +1,11 @@
 ﻿import Image from 'next/image';
+import type { ReactNode } from 'react';
 
 interface ExperienceItemProps {
   role: string;
   company: string;
   period: string;
-  description: string;
+  description: ReactNode;
   logo?: string;
 }
 
@@ -36,15 +37,22 @@ const Experience = () => {
       company: 'COHAB Curitiba',
       period: 'Outubro 2024 - Março 2025',
       description:
-        'Atuei dando suporte em hardware, software, redes e help desk. Foi ali que percebi como traduzir tecnologia em soluções práticas ajuda quem está na linha de frente.',
+        'Atuei dando suporte em hardware, software, redes e help desk. Ali desenvolvi minha vontade, e capacidade de resolução de problemas.',
       logo: '/logos/empresa1.png',
     },
     {
       role: 'Técnico de Operações',
       company: 'Vidya Technology',
       period: 'Abril 2025 - Atual',
-      description:
-        'Faço operações, fiz um script Python com OpenCV para acelerar análises e edição de imagens, resultando em uma melhora de 20% no Resultado de nossa IA. Também criei automações para o Monday para reduzir tarefas manuais e aumentar a assertividade no controle de tempo e tarefas.',
+      description: (
+        <>
+          Faço operações, desenvolvi um script{' '}
+          <span className="font-semibold text-[#FF7A7A]">Python</span>{' '}com{' '}
+          <span className="font-semibold text-[#FF7A7A]">OpenCV</span>{' '}para acelerar análises e edição de imagens, gerando uma{' '}
+          <span className="font-semibold text-[#FF7A7A]">melhora de 20%</span>{' '}nos resultados de reconhecimento da IA. Criei
+          automações que produziram um resultado de maior eficiência e redução de tempo para conclusão de Tasks do time.
+        </>
+      ),
       logo: '/logos/empresa2.png',
     },
   ];
@@ -62,11 +70,14 @@ const Experience = () => {
 
   return (
     <section className="max-w-5xl mx-auto space-y-10">
-      <div className="text-center space-y-3">
+      <div className="text-center space-y-3 flex flex-col items-center">
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
           experiências
         </span>
         <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">Onde desenvolvi projetos reais</h2>
+        <p className="mx-auto max-w-3xl text-sm sm:text-base text-[#E6E6E6]/70">
+          Aqui desenvolvi e apresentei resultados com minha experiência!
+        </p>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {experiences.map((exp) => (

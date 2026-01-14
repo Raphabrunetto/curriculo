@@ -64,50 +64,50 @@ const Header = () => {
           <span className="hidden sm:inline">Menu</span>
         </button>
 
-        {menuOpen && (
-          <div
-            id="header-menu"
-            className="absolute right-0 mt-3 w-72 rounded-2xl border border-white/10 bg-[#141414]/95 p-2 shadow-[0_18px_40px_rgba(0,0,0,0.45)] backdrop-blur"
-          >
-            <ul className="flex flex-col gap-1">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isCurrent = isActive(item.href);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`${menuItemBaseClasses} ${
-                        isCurrent ? menuItemActiveClasses : menuItemDefaultClasses
-                      }`}
-                    >
-                      <span className="flex items-center gap-3">
-                        <span
-                          className="menu-icon-pill"
-                          style={
-                            {
-                              '--pill-i': item.accentStart,
-                              '--pill-j': item.accentEnd,
-                            } as CSSProperties
-                          }
-                        >
-                          <span className="menu-icon-pill__icon">
-                            <Icon size={16} />
-                          </span>
-                          <span className="menu-icon-pill__label" aria-hidden="true">
-                            {item.label}
-                          </span>
+        <div
+          id="header-menu"
+          className={`header-menu ${menuOpen ? 'is-open' : ''}`}
+          aria-hidden={!menuOpen}
+        >
+          <ul className="header-menu__list">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isCurrent = isActive(item.href);
+              return (
+                <li key={item.href} className="header-menu__entry">
+                  <Link
+                    href={item.href}
+                    tabIndex={menuOpen ? 0 : -1}
+                    className={`header-menu__item ${menuItemBaseClasses} ${
+                      isCurrent ? menuItemActiveClasses : menuItemDefaultClasses
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span
+                        className="menu-icon-pill"
+                        style={
+                          {
+                            '--pill-i': item.accentStart,
+                            '--pill-j': item.accentEnd,
+                          } as CSSProperties
+                        }
+                      >
+                        <span className="menu-icon-pill__icon">
+                          <Icon size={16} />
                         </span>
-                        <span className="menu-item__label">{item.label}</span>
+                        <span className="menu-icon-pill__label" aria-hidden="true">
+                          {item.label}
+                        </span>
                       </span>
-                      <FiArrowUpRight className="menu-item__arrow" />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
+                      <span className="menu-item__label">{item.label}</span>
+                    </span>
+                    <FiArrowUpRight className="menu-item__arrow" />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
     </header>
   );

@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 
 const MIN_WIDTH = 240;
 const MAX_WIDTH = 420;
@@ -48,6 +49,7 @@ const ResponsivePreviewCard = () => {
   const isFlippedRef = useRef(isFlipped);
 
   const isCompact = frameWidth < 320;
+  const rangeProgress = ((frameWidth - MIN_WIDTH) / (MAX_WIDTH - MIN_WIDTH)) * 100;
 
   useEffect(() => {
     isFlippedRef.current = isFlipped;
@@ -298,12 +300,13 @@ const ResponsivePreviewCard = () => {
   };
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-300 hover:border-white/25 hover:bg-white/5">
+    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-[#D14949]/10 p-6 shadow-[0_24px_50px_rgba(209,73,73,0.25)] transition-all duration-300 hover:border-[#FF7A7A]/40 hover:shadow-[0_34px_70px_rgba(209,73,73,0.45)]">
+      <div className="pointer-events-none absolute -top-16 right-6 h-24 w-24 rounded-full bg-[#FF7A7A]/20 blur-2xl" />
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl font-semibold text-[#E6E6E6]">Interfaces atuais e responsivas</h3>
+          <h3 className="text-xl font-semibold text-[#E6E6E6]">Simulador de layout responsivo</h3>
           <p className="mt-2 text-sm text-[#E6E6E6]/70">
-            Arraste o controle ou vire o card para jogar com gravidade.
+            Demonstra breakpoints, estados e microinterações em tempo real. Arraste o controle ou vire o card para validar o comportamento.
           </p>
         </div>
         <button
@@ -331,7 +334,8 @@ const ResponsivePreviewCard = () => {
                   value={frameWidth}
                   onChange={(event) => setFrameWidth(Number(event.target.value))}
                   aria-label="Largura do layout"
-                  className="w-full accent-[#FF7A7A]"
+                  className="layout-range"
+                  style={{ '--range-progress': `${rangeProgress}%` } as CSSProperties}
                 />
               </div>
 

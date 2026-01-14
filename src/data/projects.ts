@@ -6,13 +6,7 @@
 }
 
 export const projects: Project[] = [
-  {
-    title: 'Projeto One Piece',
-    description:
-      'Landing page feita em HTML, CSS e JavaScript para praticar fundamentos de layout, animações e responsividade.',
-    techs: ['HTML', 'CSS', 'JavaScript'],
-    link: 'https://raphabrunetto.github.io/projeto-one-piece',
-  },
+  ,
   {
     title: 'AutoEdição de Imagens com Script CV2',
     description:
@@ -27,4 +21,11 @@ export const projects: Project[] = [
     techs: ['Monday', 'Automação'],
     link: '#',
   },
+  {
+    title: 'Projeto One Piece',
+    description:
+      'Landing page feita em HTML, CSS e JavaScript para praticar fundamentos de layout, animações e responsividade.',
+    techs: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://raphabrunetto.github.io/projeto-one-piece',
+  }
 ];
