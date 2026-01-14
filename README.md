@@ -1,64 +1,35 @@
-﻿# Currículo Online & Portfólio - Raphael Brunetto
+# Currículo Online & Portfólio - Raphael Brunetto
 
-Este projeto é o meu portfólio e currículo online. Desenvolvido para demonstrar habilidades em desenvolvimento front-end moderno, UX/UI e interatividade.
+Este projeto reúne meu portfólio e currículo online, com foco em mostrar entregas reais, stack atual e como penso experiência do usuário.
 
 ## Tecnologias em Destaque
 
 | Categoria | Tecnologia | Objetivo no Projeto |
 | :--- | :--- | :--- |
-| **Framework** | **Next.js (App Router)** | Alto desempenho, Server Components e estrutura moderna de roteamento. |
-| **Linguagem** | **TypeScript** | Garante código seguro, escalável e tipado. |
-| **Estilização** | **Tailwind CSS** | Desenvolvimento rápido de design customizado e responsivo (*Utility-First*). |
-| **Animações** | **Framer Motion** | Adiciona micro-interações e animações elegantes de entrada. |
-| **Efeitos Visuais** | **tsparticles** | Cria o fundo interativo com partículas que reagem ao mouse. |
-| **Versionamento** | **Git / GitHub** | Controle de versão e *deploy* contínuo. |
+| **Framework** | **Next.js (App Router)** | Estrutura moderna, performance e roteamento organizado. |
+| **Linguagem** | **TypeScript** | Tipagem segura e manutenção previsível. |
+| **Estilização** | **Tailwind CSS** | UI rápida, consistente e responsiva. |
+| **Animações** | **CSS + IntersectionObserver** | ScrollReveal e microinterações suaves. |
+| **UI/Ícones** | **React Icons** | Ícones leves e consistentes. |
+| **Deploy** | **Vercel** | Entrega contínua e build automático. |
 
 ---
 
-## Features do Projeto
+## Principais Destaques
 
-* **Design Coeso:** Layout *dark mode* unificado, com *branding* roxo/ciano.
-* **Seções Modulares:** Organização completa em seções de **Experiência**, **Habilidades**, **Certificados** e **Projetos** (usando cards reutilizáveis).
-* **Interatividade Dinâmica:** Efeito de partículas de fundo que reagem ao movimento do mouse.
-* **Contato Direto:** Botões e links para **WhatsApp** e **E-mail** (`mailto:`).
-* **Otimização:** Uso do componente `<Image />` do Next.js e *Server Components* para performance.
-
----
-
-## Como Rodar Localmente
-
-Siga estas instruções para configurar e rodar o projeto em sua máquina:
-
-### Pré-requisitos
-
-Certifique-se de ter o [Node.js](https://nodejs.org/en/) e o [npm](https://www.npmjs.com/) instalados.
-
-### Passos
-
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/Raphabrunetto/curriculo.git
-    cd curriculo
-    ```
-2. Instale as dependências:
-    ```bash
-    npm install
-    ```
-3. Inicie o servidor de desenvolvimento:
-    ```bash
-    npm run dev
-    ```
-
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador. O site recarregará automaticamente ao salvar qualquer alteração.
+- **Design coeso:** identidade visual escura com acentos em vermelho e foco em contraste.
+- **Seções modulares:** experiências, habilidades, certificados e projetos com cards reutilizáveis.
+- **Interatividade:** dropdown animado no menu, card responsivo com slider e flip interativo.
+- **Conteúdo orientado a resultados:** métricas e highlights de projetos com tecnologias em evidência.
 
 ---
 
 ## Deploy
 
-Este projeto é hospedado na **Vercel**, a plataforma recomendada pelos criadores do Next.js, garantindo o melhor desempenho e o *Continuous Deployment (CD)*.
+Este projeto está hospedado na **Vercel**.
 
-* **Deploy Atual:** [curriculo-rb.vercel.app](https://curriculo-rb.vercel.app)
-* **Deploy Automático:** Qualquer `git push` para a branch `main` dispara um *build* e atualização automática na Vercel.
+- **Deploy atual:** [curriculo-rb.vercel.app](https://curriculo-rb.vercel.app)
+- **Deploy automático:** qualquer `git push` para a branch `main` dispara build e atualização automática.
 
 ---
 
@@ -70,4 +41,4 @@ Este projeto é hospedado na **Vercel**, a plataforma recomendada pelos criadore
 | **GitHub** | [@Raphabrunetto](https://github.com/Raphabrunetto) |
 | **LinkedIn** | [Raphael Brunetto - Dev](https://www.linkedin.com/in/raphael-brunetto-dev) |
 
-> *Obrigado por visitar meu portfólio!*
+> Obrigado por visitar meu portfólio!
