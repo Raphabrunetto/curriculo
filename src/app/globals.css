@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   --color-background: #0f0f0f;
@@ -201,6 +201,14 @@ body {
   opacity: 0;
   transform: translateX(-4px);
   max-width: 0;
+}
+
+.language-toggle .menu-item__label,
+.language-toggle:hover .menu-item__label,
+.language-toggle:focus-visible .menu-item__label {
+  opacity: 1;
+  transform: none;
+  max-width: none;
 }
 
 .flip-card {

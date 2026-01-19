@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from '@/components/LanguageProvider';
+
 const normalizeTech = (tech: string) =>
   tech
     .normalize('NFD')
@@ -15,6 +19,7 @@ const techColors: Record<string, string> = {
   bash: 'border border-[#10B981]/40 text-[#34D399] bg-[#065F46]/10',
   monday: 'border border-[#22C55E]/40 text-[#22C55E] bg-[#14532D]/10',
   automacao: 'border border-[#A855F7]/35 text-[#C084FC] bg-[#4C1D95]/15',
+  automation: 'border border-[#A855F7]/35 text-[#C084FC] bg-[#4C1D95]/15',
 };
 
 const getTechColors = (tech: string) =>
@@ -29,6 +34,9 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, description, techs, link, highlight = false }) => {
+  const { language } = useLanguage();
+  const label = language === 'en' ? 'Technologies:' : 'Tecnologias:';
+
   return (
     <a href={link} target="_blank" rel="noopener noreferrer" className="block group h-full">
       <div
@@ -42,13 +50,13 @@ const Card: React.FC<CardProps> = ({ title, description, techs, link, highlight 
           </h3>
           <p className="text-[#E6E6E6]/70 text-sm mb-4 leading-relaxed">{description}</p>
         </div>
-        
+
         <div>
-          <h4 className="text-sm font-semibold mb-2 text-[#E6E6E6]/75">Tecnologias:</h4>
+          <h4 className="text-sm font-semibold mb-2 text-[#E6E6E6]/75">{label}</h4>
           <div className="flex flex-wrap gap-2 text-xs">
             {techs.map((tech, index) => (
-              <span 
-                key={index} 
+              <span
+                key={index}
                 className={`rounded-full px-3 py-1 font-mono uppercase tracking-wider transition-colors ${getTechColors(
                   tech
                 )}`}

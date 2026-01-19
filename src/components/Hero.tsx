@@ -1,36 +1,49 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-
-const ctas = [
-  {
-    label: 'Falar no WhatsApp',
-    href: 'https://wa.me/5541997532136?text=Ol%C3%A1%2C%20Raphael!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20sobre%20uma%20oportunidade.',
-    icon: FaWhatsapp,
-    style:
-      'bg-[#FF7A7A] text-[#141414] hover:bg-[#FF7A7A]/90 focus-visible:ring-[#FF7A7A]',
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
-    icon: FaLinkedin,
-    style:
-      'bg-[#D14949] text-[#E6E6E6] hover:bg-[#D14949]/85 focus-visible:ring-[#D14949]',
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/Raphabrunetto',
-    icon: FaGithub,
-    style:
-      'bg-white/5 text-[#E6E6E6] hover:bg-white/10 focus-visible:ring-white/40',
-  },
-];
+import { useLanguage } from '@/components/LanguageProvider';
 
 const Hero = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const isRevealedRef = useRef(false);
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+  const whatsappMessage = isEnglish
+    ? 'Hi, Raphael! I saw your portfolio and would love to talk about an opportunity.'
+    : 'Olá, Raphael! Vi seu portfólio e gostaria de conversar sobre uma oportunidade.';
+  const whatsappHref = `https://wa.me/5541997532136?text=${encodeURIComponent(whatsappMessage)}`;
+
+  const ctas = [
+    {
+      label: isEnglish ? 'WhatsApp me' : 'Falar no WhatsApp',
+      href: whatsappHref,
+      icon: FaWhatsapp,
+      style:
+        'bg-[#FF7A7A] text-[#141414] hover:bg-[#FF7A7A]/90 focus-visible:ring-[#FF7A7A]',
+    },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
+      icon: FaLinkedin,
+      style:
+        'bg-[#D14949] text-[#E6E6E6] hover:bg-[#D14949]/85 focus-visible:ring-[#D14949]',
+    },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/Raphabrunetto',
+      icon: FaGithub,
+      style:
+        'bg-white/5 text-[#E6E6E6] hover:bg-white/10 focus-visible:ring-white/40',
+    },
+  ];
+
+  const heroRole = isEnglish ? 'Software Developer & Engineer' : 'Desenvolvedor e Engenheiro de Software';
+  const heroDescription = isEnglish
+    ? 'I connect technology with operations to solve real problems. Focused on digital experiences, smart automation, and integrations that deliver results.'
+    : 'Conecto tecnologia às operações para resolver problemas reais. Foco em experiências digitais, automações inteligentes e integrações que geram resultados.';
+  const heroAlt = isEnglish ? 'Photo of Raphael Brunetto' : 'Foto de Raphael Brunetto';
 
   useEffect(() => {
     isRevealedRef.current = isRevealed;
@@ -149,11 +162,11 @@ const Hero = () => {
               <div className="relative rounded-3xl border border-white/10 bg-[#141414]/70 p-1 shadow-[0_16px_32px_rgba(209,73,73,0.2)]">
                 <Image
                   src="/images/eu.jpeg"
-                  alt="Foto de Raphael Brunetto"
-                width={240}
-                height={240}
-                priority
-                className="relative h-[240px] w-[240px] rounded-2xl border border-[#D14949]/50 object-cover"
+                  alt={heroAlt}
+                  width={240}
+                  height={240}
+                  priority
+                  className="relative h-[240px] w-[240px] rounded-2xl border border-[#D14949]/50 object-cover"
                 />
               </div>
             </div>
@@ -162,7 +175,7 @@ const Hero = () => {
               <h1 className="hover-underline text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_6px_16px_rgba(0,0,0,0.4)]">
                 <span className="block text-[#E6E6E6]">Raphael Brunetto</span>
                 <span className="mt-2 block text-2xl font-medium text-[#D14949] sm:text-3xl">
-                  Desenvolvedor & Engenheiro de Software
+                  {heroRole}
                 </span>
               </h1>
             </div>
@@ -175,8 +188,7 @@ const Hero = () => {
             }`}
           >
             <p className="mx-auto max-w-2xl text-base text-[#E6E6E6]/80 sm:text-lg">
-              Conecto tecnologia a operações para resolver problemas reais. Foco em experiências digitais, automações
-              inteligentes e integrações que dão resultado.
+              {heroDescription}
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
               {ctas.map((cta) => {

@@ -1,30 +1,41 @@
-﻿"use client";
+"use client";
 
 import type { CSSProperties } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-
-const socialLinks = [
-  {
-    icon: FaGithub,
-    href: 'https://github.com/Raphabrunetto',
-    label: 'GitHub',
-    accent: '#24292e',
-  },
-  {
-    icon: FaLinkedin,
-    href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
-    label: 'LinkedIn',
-    accent: '#0077b5',
-  },
-  {
-    icon: FaEnvelope,
-    href: 'mailto:raphabrunetto@gmail.com',
-    label: 'E-mail',
-    accent: '#D14949',
-  },
-];
+import { useLanguage } from '@/components/LanguageProvider';
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+
+  const socialLinks = [
+    {
+      icon: FaGithub,
+      href: 'https://github.com/Raphabrunetto',
+      label: 'GitHub',
+      accent: '#24292e',
+    },
+    {
+      icon: FaLinkedin,
+      href: 'https://www.linkedin.com/in/raphael-brunetto-dev',
+      label: 'LinkedIn',
+      accent: '#0077b5',
+    },
+    {
+      icon: FaEnvelope,
+      href: 'mailto:raphabrunetto@gmail.com',
+      label: isEnglish ? 'Email' : 'E-mail',
+      accent: '#D14949',
+    },
+  ];
+
+  const tagline = isEnglish
+    ? 'Building experiences that make technology more human'
+    : 'Construindo experiências que tornam a tecnologia mais humana';
+  const copyright = isEnglish
+    ? `(c) ${new Date().getFullYear()} Raphael Brunetto. All rights reserved.`
+    : `(c) ${new Date().getFullYear()} Raphael Brunetto. Todos os direitos reservados.`;
+
   return (
     <footer className="border-t border-white/10 bg-[#101010] py-10 text-center text-[#E6E6E6]/70">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 sm:px-6">
@@ -52,11 +63,9 @@ const Footer = () => {
           })}
         </div>
         <p className="text-xs uppercase tracking-[0.35em] text-[#FF7A7A]/70">
-          Construindo experiências que deixam a tecnologia mais humana
+          {tagline}
         </p>
-        <p className="text-sm text-[#E6E6E6]/50">
-          &copy; {new Date().getFullYear()} Raphael Brunetto. Todos os direitos reservados.
-        </p>
+        <p className="text-sm text-[#E6E6E6]/50">{copyright}</p>
       </div>
     </footer>
   );

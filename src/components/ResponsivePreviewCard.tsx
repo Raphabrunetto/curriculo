@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const MIN_WIDTH = 240;
 const MAX_WIDTH = 420;
@@ -47,6 +48,31 @@ const ResponsivePreviewCard = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const containerSizeRef = useRef({ width: 0, height: 0 });
   const isFlippedRef = useRef(isFlipped);
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+  const copy = isEnglish
+    ? {
+        title: 'Responsive layout simulator',
+        description:
+          'Shows breakpoints, states, and micro-interactions in real time. Drag the control or flip the card to validate the behavior.',
+        flip: { front: 'Flip', back: 'Back' },
+        layoutWidthLabel: 'Layout width',
+        tags: ['UI/UX', 'Responsive', 'Performance'],
+        gravityHint: 'Pull the balls and release to see gravity in action.',
+        ballLabel: 'Interactive ball',
+        tip: 'Tip: drag and release to throw',
+      }
+    : {
+        title: 'Simulador de layout responsivo',
+        description:
+          'Demonstra breakpoints, estados e microinterações em tempo real. Arraste o controle ou vire o card para validar o comportamento.',
+        flip: { front: 'Virar', back: 'Voltar' },
+        layoutWidthLabel: 'Largura do layout',
+        tags: ['UI/UX', 'Responsivo', 'Performance'],
+        gravityHint: 'Puxe as bolinhas e solte para ver a gravidade em ação.',
+        ballLabel: 'Bola interativa',
+        tip: 'Dica: arraste e solte para arremessar',
+      };
 
   const isCompact = frameWidth < 320;
   const rangeProgress = ((frameWidth - MIN_WIDTH) / (MAX_WIDTH - MIN_WIDTH)) * 100;
@@ -304,10 +330,8 @@ const ResponsivePreviewCard = () => {
       <div className="pointer-events-none absolute -top-16 right-6 h-24 w-24 rounded-full bg-[#FF7A7A]/20 blur-2xl" />
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl font-semibold text-[#E6E6E6]">Simulador de layout responsivo</h3>
-          <p className="mt-2 text-sm text-[#E6E6E6]/70">
-            Demonstra breakpoints, estados e microinterações em tempo real. Arraste o controle ou vire o card para validar o comportamento.
-          </p>
+          <h3 className="text-xl font-semibold text-[#E6E6E6]">{copy.title}</h3>
+          <p className="mt-2 text-sm text-[#E6E6E6]/70">{copy.description}</p>
         </div>
         <button
           type="button"
@@ -315,7 +339,7 @@ const ResponsivePreviewCard = () => {
           className="rounded-full bg-gradient-to-r from-[#FF7A7A] to-[#D14949] px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#141414] shadow-[0_12px_28px_rgba(209,73,73,0.45)] transition-transform hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#FF7A7A]/70"
           aria-pressed={isFlipped}
         >
-          {isFlipped ? 'Voltar' : 'Virar'}
+          {isFlipped ? copy.flip.back : copy.flip.front}
         </button>
       </div>
 
@@ -325,7 +349,7 @@ const ResponsivePreviewCard = () => {
             <div className="flex h-full flex-col justify-between gap-4">
               <div className="space-y-2">
                 <label className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E6E6E6]/60">
-                  Largura do layout
+                  {copy.layoutWidthLabel}
                 </label>
                 <input
                   type="range"
@@ -333,7 +357,7 @@ const ResponsivePreviewCard = () => {
                   max={MAX_WIDTH}
                   value={frameWidth}
                   onChange={(event) => setFrameWidth(Number(event.target.value))}
-                  aria-label="Largura do layout"
+                  aria-label={copy.layoutWidthLabel}
                   className="layout-range"
                   style={{ '--range-progress': `${rangeProgress}%` } as CSSProperties}
                 />
@@ -371,7 +395,7 @@ const ResponsivePreviewCard = () => {
               </div>
 
               <div className="flex flex-wrap gap-2 text-xs font-medium tracking-[0.15em] text-[#E6E6E6]/60">
-                {['UI/UX', 'Responsivo', 'Performance'].map((tag) => (
+                {copy.tags.map((tag) => (
                   <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
                     {tag}
                   </span>
@@ -382,9 +406,7 @@ const ResponsivePreviewCard = () => {
 
           <div className="flip-card__face flip-card__back">
             <div className="flex h-full flex-col gap-3">
-              <p className="text-sm text-[#E6E6E6]/70">
-                Puxe as bolinhas e solte para ver a gravidade em ação.
-              </p>
+              <p className="text-sm text-[#E6E6E6]/70">{copy.gravityHint}</p>
               <div
                 ref={containerRef}
                 className="relative flex-1 rounded-2xl border border-white/10 bg-[#141414]/60 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] touch-none"
@@ -394,7 +416,7 @@ const ResponsivePreviewCard = () => {
                     key={ball.id}
                     role="button"
                     tabIndex={0}
-                    aria-label="Bola interativa"
+                    aria-label={copy.ballLabel}
                     onPointerDown={(event) => handlePointerDown(event, ball.id)}
                     onMouseDown={(event) => handleMouseDown(event, ball.id)}
                     className="absolute left-0 top-0 cursor-grab rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.35)] active:cursor-grabbing touch-none"
@@ -408,7 +430,7 @@ const ResponsivePreviewCard = () => {
                 ))}
               </div>
               <p className="text-xs uppercase tracking-[0.2em] text-[#E6E6E6]/50">
-                Dica: arraste e solte para arremessar
+                {copy.tip}
               </p>
             </div>
           </div>

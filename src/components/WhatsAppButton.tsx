@@ -1,14 +1,20 @@
-﻿"use client";
+"use client";
 
 import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const WHATSAPP_NUMBER = '5541997532136';
-const PRE_FILLED_MESSAGE = 'Olá, Raphael! Vi seu portfólio e gostaria de falar sobre uma oportunidade.';
-
-const encodedMessage = encodeURIComponent(PRE_FILLED_MESSAGE);
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
 const WhatsAppButton = () => {
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+  const message = isEnglish
+    ? 'Hi, Raphael! I saw your portfolio and would love to talk about an opportunity.'
+    : 'Olá, Raphael! Vi seu portfólio e gostaria de conversar sobre uma oportunidade.';
+  const label = isEnglish ? 'WhatsApp me' : 'Falar no WhatsApp';
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
   return (
     <a
       href={whatsappUrl}
@@ -19,7 +25,7 @@ const WhatsAppButton = () => {
       <span className="grid h-9 w-9 place-content-center rounded-full bg-[#141414]/10">
         <FaWhatsapp size={20} />
       </span>
-      Falar no WhatsApp
+      {label}
     </a>
   );
 };

@@ -1,3 +1,6 @@
+"use client";
+
+import { useLanguage } from '@/components/LanguageProvider';
 import {
   FaReact,
   FaJs,
@@ -25,14 +28,17 @@ const skills = [
 ];
 
 const Skills = () => {
+  const { language } = useLanguage();
+  const isEnglish = language === 'en';
+
   return (
     <section className="max-w-5xl mx-auto space-y-10">
       <div className="text-center space-y-3 flex flex-col items-center">
         <span className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7A7A]">
-          habilidades
+          {isEnglish ? 'skills' : 'habilidades'}
         </span>
         <h2 className="hover-underline text-3xl sm:text-4xl font-semibold text-[#E6E6E6]">
-          Toolkit que levo para resolver desafios
+          {isEnglish ? 'Toolkit I bring to solve challenges' : 'Caixa de ferramentas que levo para resolver desafios'}
         </h2>
       </div>
 
