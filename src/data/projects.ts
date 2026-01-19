@@ -1,4 +1,4 @@
-export interface Project {
+﻿export interface Project {
   title: string;
   description: string;
   techs: string[];
@@ -30,6 +30,20 @@ export const projectsByLocale: Record<Locale, Project[]> = {
       techs: ['HTML', 'CSS', 'JavaScript'],
       link: 'https://raphabrunetto.github.io/projeto-one-piece',
     },
+    {
+      title: 'CompreiNoJN (E-commerce)',
+      description:
+        'Projeto freelancer: loja com catalogo, estoque e checkout Pix. Inclui dashboard para vendedores, upload de imagens e cotacao de frete (Frenet).',
+      techs: [
+        'Next.js',
+        'TypeScript',
+        'Tailwind',
+        'Supabase',
+        'Mercado Pago',
+        'Frenet',
+      ],
+      link: 'https://github.com/Raphabrunetto/E-commerce',
+    },
   ],
   en: [
     {
@@ -52,6 +66,20 @@ export const projectsByLocale: Record<Locale, Project[]> = {
         'Landing page built with HTML, CSS, and JavaScript to practice layout fundamentals, animations, and responsiveness.',
       techs: ['HTML', 'CSS', 'JavaScript'],
       link: 'https://raphabrunetto.github.io/projeto-one-piece',
+    },
+    {
+      title: 'CompreiNoJN (E-commerce)',
+      description:
+        'Freelance project: store with catalog, inventory, and Pix checkout. Includes a seller dashboard, image uploads, and shipping quotes (Frenet).',
+      techs: [
+        'Next.js',
+        'TypeScript',
+        'Tailwind',
+        'Supabase',
+        'Mercado Pago',
+        'Frenet',
+      ],
+      link: 'https://github.com/Raphabrunetto/E-commerce',
     },
   ],
 };
