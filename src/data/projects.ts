@@ -24,6 +24,13 @@ export const projectsByLocale: Record<Locale, Project[]> = {
       link: '#',
     },
     {
+      title: 'WebScrapper com Playwright',
+      description:
+        'Projeto de estudo que automatiza a home do YouTube com Playwright, faz login quando necessário, rola a página e coleta título, canal, duração e link dos vídeos, e com a integração da API, se  solicitado manda para alguém no WhatsApp.',
+      techs: ['Python', 'Playwright', 'Web Scraping'],
+      link: 'https://github.com/Raphabrunetto/WebScrapperPlayWright',
+    },
+    {
       title: 'Projeto One Piece',
       description:
         'Landing page feita em HTML, CSS e JavaScript para praticar fundamentos de layout, animações e responsividade.',
@@ -59,6 +66,13 @@ export const projectsByLocale: Record<Locale, Project[]> = {
         'Pipeline that integrates worked-hours forms in Monday with real-time notifications, reducing manual tasks and operational risk.',
       techs: ['Monday', 'Automation'],
       link: '#',
+    },
+    {
+      title: 'Playwright Web Scraper',
+      description:
+        'Study project that automates the YouTube home page with Playwright, logs in when needed, scrolls the page, and collects video title, channel, duration, and link.',
+      techs: ['Python', 'Playwright', 'Web Scraping'],
+      link: 'https://github.com/Raphabrunetto/WebScrapperPlayWright',
     },
     {
       title: 'One Piece Project',

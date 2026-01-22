@@ -21,6 +21,8 @@ const techColors: Record<string, string> = {
   docker: 'border border-[#0DB7ED]/40 text-[#0DB7ED] bg-[#0DB7ED]/10',
   bash: 'border border-[#10B981]/40 text-[#34D399] bg-[#065F46]/10',
   monday: 'border border-[#22C55E]/40 text-[#22C55E] bg-[#14532D]/10',
+  playwright: 'border border-[#F472B6]/40 text-[#F9A8D4] bg-[#831843]/20',
+  'web scraping': 'border border-[#F59E0B]/40 text-[#FCD34D] bg-[#78350F]/20',
   supabase: 'border border-[#34D399]/40 text-[#6EE7B7] bg-[#064E3B]/15',
   'mercado pago': 'border border-[#0284C7]/40 text-[#38BDF8] bg-[#0C4A6E]/15',
   frenet: 'border border-[#F97316]/40 text-[#FDBA74] bg-[#7C2D12]/15',
